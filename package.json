@@ -1,0 +1,21 @@
+{
+  "name": "opposite-osiris",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^2.8.4",
+    "grapoi": "^1.0.1",
+    "n3": "^1.17.0"
+  },
+  "devDependencies": {
+    "@types/n3": "^1.16.0",
+    "@types/rdfjs__namespace": "^2.0.4"
+  }
+}

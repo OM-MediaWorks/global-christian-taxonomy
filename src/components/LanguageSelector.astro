@@ -1,0 +1,21 @@
+---
+import { getLanguages } from "../helpers/getCategories";
+const languages = await getLanguages()
+---
+<select class="language-switcher form-select" id="language-switcher" aria-label="Default select example">
+    {Object.entries(languages).map(([langcode, label]) => {
+        return <option value={langcode} data-lang-not_available={langcode}>{label}</option>
+    })}
+</select>
+
+<script>
+    const languageSwitcher = document.querySelector('#language-switcher')!
+    const selectedOption = languageSwitcher.querySelector(`option[value="${localStorage.langCode}"]`)
+    
+    selectedOption?.setAttribute('selected', '')
+
+    languageSwitcher.addEventListener('change', (event: any) => {
+        localStorage.langCode = event.target.value
+        window.refresh()
+    })
+</script>

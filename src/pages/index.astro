@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { getCategories } from "../helpers/getCategories"
+
+const categories = await getCategories()
+---
+
+<Layout title="Taxonomy">
+	<main>
+		<div>
+			{categories.map(category => <div>
+			{Object.entries(category.labels).map(([language, value]) => {
+				return <h1 data-lang-hidable={language}>{value}</h1>
+					<div class="labels">
+					<div data-lang-hidable={language}>
+						URI = <a href={category.slug}>cgt:{category.slug}</a>
+					</div>
+				</div>})}
+			</div>)}
+		</div>
+	</main>
+</Layout>
