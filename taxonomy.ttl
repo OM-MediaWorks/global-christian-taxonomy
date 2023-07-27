@@ -1,13 +1,13 @@
 @prefix cgt: <http://taxonomy.mediaworks.global/>.
 @prefix cgtl: <http://taxonomy.mediaworks.global/language/>.
 
-@prefix schema: <http://schema.org/>.
+@prefix schema: <https://schema.org/>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
 cgt:bibles-and-bible-storybooks a cgt:Category;
-    schema:image "https://images.unsplash.com/photo-1497621122273-f5cfb6065c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1548&q=80" ;
-    rdfs:label "Bibles & Bible Storybooks"@en, "バイブルとバイブルの物語"@jp.
+    schema:image "https://images.unsplash.com/photo-1497621122273-f5cfb6065c56" ;
+    rdfs:label "Bibles & Bible Stories"@en, "バイブルとバイブルの物語"@jp.
 cgt:devotionals a cgt:Category;
     rdfs:label "Devotionals"@en, "礼拝"@jp.
 cgt:children a cgt:Category;

@@ -12,6 +12,7 @@ const category = await getCategory(Astro.params.term)
 if (!category) throw new Error('Category does not exist')
 ---
 <Layout title={category.labels.en}>
+	{category.image ? <img src={category.image} width="300" height="300"/> : null}
 	<div>
 		{Object.entries(category.labels).map(([language, value]) => {
 

@@ -1,5 +1,5 @@
 import grapoi from "grapoi"
-import { gct, gctl, rdf, rdfs } from "./namespaces"
+import { gct, gctl, rdf, rdfs, schema } from "./namespaces"
 import { Literal, Parser, Store } from 'n3'
 import type { GrapoiPointer } from '../../public/types'
 import fs from 'fs/promises'
@@ -10,6 +10,7 @@ type Category = {
     labels: {
         [key: string]: string
     }
+    image: string
 }
 
 const getStore = async () => {
@@ -45,7 +46,8 @@ export const getCategories = async (): Promise<Array<Category>> => {
             uri: categoryPointer.term.value,
             slug: categoryPointer.term.value.split('/').pop(),
             labels: Object.fromEntries(categoryPointer.out([rdfs('label')]).terms
-                .map(term => ( [(term as Literal).language, term.value ])))
+                .map(term => ( [(term as Literal).language, term.value ]))),
+            image: categoryPointer.out([schema('image')]).value ?? 'https://images.unsplash.com/photo-1627444025414-c2d18d30dbd2'
         }
     })
 }

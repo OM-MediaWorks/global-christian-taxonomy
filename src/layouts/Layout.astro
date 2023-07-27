@@ -19,11 +19,29 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<LanguageSelector />
-		<slot />
+		<div class="container">
+			<div class="row align-items-start pb-4 pt-4">
+				<div class="col-10">
+					<h1 style="header"> <a href="/">Global Christian Taxonomy</a></h1>
+				</div>
+
+				<div class="col-2">
+					<LanguageSelector />
+				</div>
+			</div>
+
+			<div class="row gap-3 the-grid">
+				<slot />
+			</div>
+		</div>
+
 	</body>
 </html>
 
 <script type="module">
 	import "/applyVisualLanguageFiltering.js"
 </script>
+
+<style>
+	@import url('../scss/style.scss');
+</style>

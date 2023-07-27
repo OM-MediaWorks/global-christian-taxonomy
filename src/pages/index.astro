@@ -6,17 +6,17 @@ const categories = await getCategories()
 ---
 
 <Layout title="Taxonomy">
-	<main>
-		<div>
-			{categories.map(category => <div>
-			{Object.entries(category.labels).map(([language, value]) => {
-				return <h1 data-lang-hidable={language}>{value}</h1>
-					<div class="labels">
-					<div data-lang-hidable={language}>
-						URI = <a href={category.slug}>cgt:{category.slug}</a>
-					</div>
-				</div>})}
-			</div>)}
+	{categories.map(category => <a class="card p-0" style="width: 18rem;" href={category.slug}>
+		{category.image ? <img src={`https://wsrv.nl/?url=${category.image}&w=300&h=120&fit=cover&a=attention`} class="card-img-top" /> : null} 
+		<div class="card-body">
+		{Object.entries(category.labels).map(([language, value]) => {
+			return <h5 class="card-title" data-lang-hidable={language}>{value}</h5>
+				<p class="card-text">
+					<span data-lang-hidable={language}>
+						URI = <span>cgt:{category.slug}</span>
+					</span>
+				</p>
+			})}
 		</div>
-	</main>
+	</a>)}
 </Layout>
