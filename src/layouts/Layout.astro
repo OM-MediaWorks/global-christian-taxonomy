@@ -19,7 +19,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row align-items-start pb-4 pt-4">
 				<div class="col-10">
 					<h1 style="header"> <a href="/">Global Christian Taxonomy</a></h1>
@@ -30,9 +30,7 @@ const { title } = Astro.props;
 				</div>
 			</div>
 
-			<div class="row gap-3 the-grid">
-				<slot />
-			</div>
+			<slot />
 		</div>
 
 	</body>

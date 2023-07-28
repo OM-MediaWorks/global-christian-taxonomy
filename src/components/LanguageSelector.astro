@@ -1,10 +1,10 @@
 ---
-import { getLanguages } from "../helpers/getCategories";
+import { getLanguages, getTranslationPercentage, percentageHandler } from "../helpers/getCategories";
 const languages = await getLanguages()
 ---
 <select class="language-switcher form-select" id="language-switcher" aria-label="Default select example">
-    {Object.entries(languages).map(([langcode, label]) => {
-        return <option value={langcode} data-lang-not_available={langcode}>{label}</option>
+    {Object.entries(languages).map(async ([langcode, label]) => {
+        return <option value={langcode} data-lang-not_available={langcode}>{label + await percentageHandler(langcode, await getTranslationPercentage(langcode))}</option>
     })}
 </select>
 

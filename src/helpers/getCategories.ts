@@ -35,6 +35,34 @@ export const getLanguages = async () => {
     }))
 }
 
+export const getTranslationPercentage = async (langCode:string) => {
+    const store = await getStore()
+    const pointers = grapoi({ dataset: store, term: gct('Category') })
+        .in([rdf('type')]) as GrapoiPointer
+    const totalLength = pointers.values.length
+    const categories = await getCategories()
+    let languageAvailibility = 0
+    let i = 0
+
+    while(i <= totalLength-1){
+        if (categories[i].labels[langCode] !== undefined) {
+            languageAvailibility ++
+        }
+        i++
+    }
+    return languageAvailibility = Math.round((languageAvailibility/totalLength) * 100)
+
+}
+
+export const percentageHandler = async (langCode:string, percentage:number) => {
+    if (langCode != "en") {
+        return ` (${percentage}%)`
+    }
+    else {
+        return ""
+    }
+}
+
 export const getCategories = async (): Promise<Array<Category>> => {
     const store = await getStore()
 

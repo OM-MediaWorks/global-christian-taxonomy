@@ -5,18 +5,26 @@ import { getCategories } from "../helpers/getCategories"
 const categories = await getCategories()
 ---
 
-<Layout title="Taxonomy">
-	{categories.map(category => <a class="card p-0" style="width: 18rem;" href={category.slug}>
-		{category.image ? <img src={`https://wsrv.nl/?url=${category.image}&w=300&h=120&fit=cover&a=attention`} class="card-img-top" /> : null} 
-		<div class="card-body">
-		{Object.entries(category.labels).map(([language, value]) => {
-			return <h5 class="card-title" data-lang-hidable={language}>{value}</h5>
-				<p class="card-text">
-					<span data-lang-hidable={language}>
-						URI = <span>cgt:{category.slug}</span>
-					</span>
-				</p>
-			})}
-		</div>
-	</a>)}
+<Layout title="Global Christian Taxonomy">
+	<div class="row gap-3 the-grid">
+		{categories.map(category => <a class="card p-0" style="width: 18rem;" href={category.slug}>
+			{category.image ? <img src={`https://wsrv.nl/?url=${category.image}&w=300&h=120&fit=cover&a=attention`} class="card-img-top" /> : null} 
+			<div class="card-body">
+			{Object.entries(category.labels).map(([language, value]) => {
+				return <h5 class="card-title" data-lang-hidable={language}>{value}</h5>
+					<p class="card-text">
+						<span data-lang-hidable={language}>
+							URI = <span>cgt:{category.slug}</span>
+						</span>
+					</p>
+				})}
+			</div>
+		</a>)}
+		<div class="empty card"></div>
+		<div class="empty card"></div>
+		<div class="empty card"></div>
+		<div class="empty card"></div>
+		<div class="empty card"></div>
+		<div class="empty card"></div>
+	</div>
 </Layout>

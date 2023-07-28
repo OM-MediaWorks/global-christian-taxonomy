@@ -2,6 +2,10 @@
 
 .card {
     text-decoration: none;
+
+    &.empty {
+        border: none;
+    }
 }
 
 .the-grid {
@@ -47,4 +51,8 @@
 a {
     text-decoration: none;
     color:var(--bs-body-color);
+}
+
+.container-fluid {
+    max-width: 1280px;
 }

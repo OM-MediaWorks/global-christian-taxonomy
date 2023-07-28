@@ -5,7 +5,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-cgt:bibles-and-bible-storybooks a cgt:Category;
+cgt:bibles-and-bible-stories a cgt:Category;
     schema:image "https://images.unsplash.com/photo-1497621122273-f5cfb6065c56" ;
     rdfs:label "Bibles & Bible Stories"@en, "バイブルとバイブルの物語"@jp.
 cgt:devotionals a cgt:Category;
