@@ -84,3 +84,23 @@ export const getCategory = async (slug: string | undefined) => {
     const categories = await getCategories()
     return categories.find(category => category.slug === slug)
 }
+
+export const getPageDescriptionInfo = async () => {
+    const store = await getStore()
+    const pointers = grapoi({ dataset: store, term: gctl('Language') })
+        .in([rdf('type')]) as GrapoiPointer
+    const descriptionArray = pointers.out([gctl("siteDescription")]).values
+    const languages = pointers.out([gctl("shortHand")]).values
+    const length = [languages.length]
+    return [descriptionArray, languages, length]
+}
+
+export const getPageDescription = (langcode:string, descriptionArray:any[], languages:any[]) => {
+    let i = 0
+    let languageIndex: string[] = []
+    while (i < (languages.length)) {
+        languageIndex[languages[i]] = descriptionArray[i]
+        i++
+    }
+    return languageIndex
+}

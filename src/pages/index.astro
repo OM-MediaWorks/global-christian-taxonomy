@@ -1,11 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { getCategories } from "../helpers/getCategories"
+import { getCategories, getPageDescriptionInfo, getPageDescription } from "../helpers/getCategories"
 
 const categories = await getCategories()
+const descInfo = await getPageDescriptionInfo()
+const descriptions = getPageDescription("en", descInfo[0], descInfo[1])
 ---
 
 <Layout title="Global Christian Taxonomy">
+	<h4 class="title-alt">Welcome to the Global Christian Taxonomy</h4>
+	<div> 
+		{() => {
+			let i = 0
+			let returnArray: Element[] = []
+			while (i < descInfo[2][0]) {
+				returnArray[i] = <div data-lang={descInfo[descInfo[1][i]]}>{descriptions[descInfo[1][i]]}</div>
+				// ^ doesnt work properly as html elements are not converted from string and is not yet language filtered
+				i++
+			}
+			return returnArray
+		}}
+	</div>
 	<div class="row gap-3 the-grid">
 		{categories.map(category => <a class="card p-0" style="width: 18rem;" href={category.slug}>
 			{category.image ? <img src={`https://wsrv.nl/?url=${category.image}&w=300&h=120&fit=cover&a=attention`} class="card-img-top" /> : null} 
@@ -14,7 +29,7 @@ const categories = await getCategories()
 				return <h5 class="card-title" data-lang-hidable={language}>{value}</h5>
 					<p class="card-text">
 						<span data-lang-hidable={language}>
-							URI = <span>cgt:{category.slug}</span>
+							URI = <span>gct:{category.slug}</span>
 						</span>
 					</p>
 				})}
@@ -28,3 +43,10 @@ const categories = await getCategories()
 		<div class="empty card"></div>
 	</div>
 </Layout>
+
+<script>
+	const selected = [...document.querySelectorAll("[data-lang]")]
+	for (let i in selected) {
+		
+	}
+</script>

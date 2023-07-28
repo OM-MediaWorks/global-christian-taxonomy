@@ -1,62 +1,87 @@
-@prefix cgt: <http://taxonomy.mediaworks.global/>.
-@prefix cgtl: <http://taxonomy.mediaworks.global/language/>.
+@prefix gct: <http://taxonomy.mediaworks.global/>.
+@prefix gctl: <http://taxonomy.mediaworks.global/language/>.
 
 @prefix schema: <https://schema.org/>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-cgt:bibles-and-bible-stories a cgt:Category;
+gct:bibles-and-bible-stories a gct:Category;
     schema:image "https://images.unsplash.com/photo-1497621122273-f5cfb6065c56" ;
     rdfs:label "Bibles & Bible Stories"@en, "バイブルとバイブルの物語"@jp.
-cgt:devotionals a cgt:Category;
+gct:devotionals a gct:Category;
     rdfs:label "Devotionals"@en, "礼拝"@jp.
-cgt:children a cgt:Category;
+gct:children a gct:Category;
     rdfs:label "Children"@en, "子供用"@jp.
-cgt:biblical-studies a cgt:Category;
+gct:biblical-studies a gct:Category;
     rdfs:label "Biblical Studies"@en, "バイブルの勉学"@jp.
-cgt:spiritual-growth a cgt:Category;
+gct:spiritual-growth a gct:Category;
     rdfs:label "Spiritual Growth"@en.
-cgt:novels a cgt:Category;
+gct:novels a gct:Category;
     rdfs:label "Novels"@en.
-cgt:educational a cgt:Category;
+gct:educational a gct:Category;
     rdfs:label "Educational"@en.
-cgt:personal-growth a cgt:Category;
+gct:personal-growth a gct:Category;
     rdfs:label "Personal Growth"@en.
-cgt:comics-and-graphic-novels a cgt:Category;
+gct:comics-and-graphic-novels a gct:Category;
     rdfs:label "Comics & Graphic Novels"@en.
-cgt:teens-and-young-adults a cgt:Category;
+gct:teens-and-young-adults a gct:Category;
     rdfs:label "Teens & Young Adults"@en.
-cgt:theology a cgt:Category;
+gct:theology a gct:Category;
     rdfs:label "Theology"@en, "神学"@jp,"Theologie"@nl, "Teología"@es.
-cgt:biographies-and-memoirs a cgt:Category;
+gct:biographies-and-memoirs a gct:Category;
     rdfs:label "Biographies & Memoirs"@en.
-cgt:support-and-counseling a cgt:Category;
+gct:support-and-counseling a gct:Category;
     rdfs:label "Support & Counseling"@en.
-cgt:ministry-and-evangelism a cgt:Category;
+gct:ministry-and-evangelism a gct:Category;
     rdfs:label "Ministry & Evangelism"@en.
-cgt:study-materials a cgt:Category;
+gct:study-materials a gct:Category;
     rdfs:label "Study Materials"@en.
-cgt:biblical-and-church-history a cgt:Category;
+gct:biblical-and-church-history a gct:Category;
     rdfs:label "Biblical & Church History"@en.
-cgt:ethics-and-social-issues a cgt:Category;
+gct:ethics-and-social-issues a gct:Category;
     rdfs:label "Ethics & Social Issues"@en.
-cgt:leadership a cgt:Category;
+gct:leadership a gct:Category;
     rdfs:label "Leadership"@en.
-cgt:family-and-relationships a cgt:Category;
+gct:family-and-relationships a gct:Category;
     rdfs:label "Family & Relationships"@en.
 
-cgtl:en 
-    a cgtl:Language ;
-    rdfs:label "English" .
+gctl:en 
+    a gctl:Language ;
+    gctl:siteDescription """
+		This taxonomy is a work in progress. Over time we would love to see this taxonomy being adopted by many Christian publishers and media administrators.
+		Our goal is to make it easy to search through sources of Christian media as if it is one data source.
+		A little preview of that idea is visible at <a class="a-colour" href=https://bundled.media>bundled.media</a>.
+		<br>
+		<br>
+		We would love to have contributions to the translations. This is possible via pull requests on the <a class="a-colour" href=https://github.com/OM-MediaWorks/global-christian-taxonomy>GitHub repository</a>.
+		<br>
+		<br>
 
-cgtl:jp 
-    a cgtl:Language ;
-    rdfs:label "日本語" .
+    
+    """ ;
+    rdfs:label "English" ;
+    gctl:shortHand "en".
 
-cgtl:nl 
-    a cgtl:Language ;
-    rdfs:label "Nederlands" .
+gctl:jp 
+    a gctl:Language ;
+    gctl:siteDescription """
+    placeholderjp
+    """ ;
+    rdfs:label "日本語" ;
+    gctl:shortHand "jp".
 
-cgtl:es
-    a cgtl:Language ;
-    rdfs:label "Español" .
+gctl:nl 
+    a gctl:Language ;
+    gctl:siteDescription """
+    placeholdernl
+    """ ;
+    rdfs:label "Nederlands" ;
+    gctl:shortHand "nl".
+
+gctl:es
+    a gctl:Language ;
+    gctl:siteDescription """
+    placeholderes
+    """ ;
+    rdfs:label "Español" ;
+    gctl:shortHand "es".
