@@ -2,7 +2,9 @@
 
 This is a taxonomy / category system for usage by Christian media publishers and consumers.
 
-Goals for the long term:
+The current data is here: [taxonomy.ttl](https://github.com/OM-MediaWorks/global-christian-taxonomy/blob/main/taxonomy.ttl)
+
+## Goals for the long term:
 
 - Available in many languages
 - Making it possible to search for Christian media over many sources and being able to use a category that filters the media
@@ -18,7 +20,7 @@ Goals for the long term:
   - References to other systems via [owl:sameAs](https://www.w3.org/TR/owl-ref/#sameAs-def)
 - A group of organizations that maintain and own this taxonomy (get into contact for joining)
 
-Challenges (and some possible solutions):
+## Challenges (and some possible solutions):
 
 - Categories might not translate 100%
   - We could have categories that are siblings in the hierarchy and that have for 70% the same meaning
@@ -28,4 +30,4 @@ Challenges (and some possible solutions):
   - We could create codes such as GCT:034 which systems than can map to the correct label
   - If we choose this way we need tooling for this
 
-Will you join this cause? Get in contact!
+## Will you join this cause? Get in contact!
