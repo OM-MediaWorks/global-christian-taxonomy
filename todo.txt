@@ -1,4 +1,0 @@
-add description to categories
-add message to language which is not 100% translated
-icons?
-welcome message -> data from ttl is accessible but does not convert the html elements into html when accessed

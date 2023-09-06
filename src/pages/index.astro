@@ -15,8 +15,8 @@ const siteDescriptions = await getSiteDescriptions()
 			<div class="card-body">
 			{Object.entries(category.labels).map(([language, value]) => {
 				return <h5 class="card-title" data-lang-hidable={language}>{value}</h5>
-					<p class="card-text">
-						<span data-lang-hidable={language}>
+					<p class="card-text" data-lang-hidable={language}>
+						<span>
 							URI = <span>gct:{category.slug}</span>
 						</span>
 					</p>
