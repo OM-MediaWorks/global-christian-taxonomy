@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && echo taxonomy.mediaworks.global > docs/CNAME && echo \"\" > docs/.nojekyll",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astropub/md": "^0.2.0",
     "astro": "^2.8.4",
+    "dedent": "^1.5.1",
     "grapoi": "^1.0.1",
     "n3": "^1.17.0"
   },
@@ -20,4 +22,3 @@
     "sass": "^1.64.1"
   }
 }
-

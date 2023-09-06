@@ -1,17 +1,20 @@
 ---
-import { getLanguages, getTranslationPercentage, percentageHandler, getPageDescription } from "../helpers/getCategories";
+import { getLanguages } from "../helpers/store";
 const languages = await getLanguages()
+declare global {
+    interface Window { refresh: () => void; }
+}
 ---
-<select class="language-switcher form-select" id="language-switcher" aria-label="Default select example">
-    {Object.entries(languages).map(async ([langcode, label]) => {
-        return <option value={langcode} data-lang-not_available={langcode}>{label + await percentageHandler(langcode, await getTranslationPercentage(langcode))}</option>
-    })}
+<select class="language-switcher form-select" id="language-switcher">
+    {Object.entries(languages)
+        .map(async ([langcode, { label, percentage }]) => <option value={langcode} data-lang-not_available={langcode}>
+            {`${label}${percentage === 100 ? '' : ` (${percentage}%)`}`}
+        </option>)}
 </select>
 
 <script>
     const languageSwitcher = document.querySelector('#language-switcher')!
     const selectedOption = languageSwitcher.querySelector(`option[value="${localStorage.langCode}"]`)
-    
     selectedOption?.setAttribute('selected', '')
 
     languageSwitcher.addEventListener('change', (event: any) => {

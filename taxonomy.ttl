@@ -50,38 +50,24 @@ gctl:en
     gctl:siteDescription """
 		This taxonomy is a work in progress. Over time we would love to see this taxonomy being adopted by many Christian publishers and media administrators.
 		Our goal is to make it easy to search through sources of Christian media as if it is one data source.
-		A little preview of that idea is visible at <a class="a-colour" href=https://bundled.media>bundled.media</a>.
-		<br>
-		<br>
-		We would love to have contributions to the translations. This is possible via pull requests on the <a class="a-colour" href=https://github.com/OM-MediaWorks/global-christian-taxonomy>GitHub repository</a>.
-		<br>
-		<br>
+		A little preview of that idea is visible at [bundled.media](https://bundled.media).
 
-    
+		We would love to have contributions to the translations. This is possible via pull requests on the [GitHub repository](https://github.com/OM-MediaWorks/global-christian-taxonomy).
     """ ;
     rdfs:label "English" ;
-    gctl:shortHand "en".
+    gctl:bcp47 "en".
 
 gctl:jp 
     a gctl:Language ;
-    gctl:siteDescription """
-    placeholderjp
-    """ ;
     rdfs:label "日本語" ;
-    gctl:shortHand "jp".
+    gctl:bcp47 "jp".
 
 gctl:nl 
     a gctl:Language ;
-    gctl:siteDescription """
-    placeholdernl
-    """ ;
     rdfs:label "Nederlands" ;
-    gctl:shortHand "nl".
+    gctl:bcp47 "nl".
 
 gctl:es
     a gctl:Language ;
-    gctl:siteDescription """
-    placeholderes
-    """ ;
     rdfs:label "Español" ;
-    gctl:shortHand "es".
+    gctl:bcp47 "es".
