@@ -6,33 +6,31 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const pageTitle = `${title} | Global Christian Taxonomy`
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
+		<meta name="description" content={pageTitle}>
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title class="title-alt">{title}</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<div class="container-fluid">
-			<div class="row align-items-start pb-4 pt-4">
-				<div class="col-10">
-					<h1 style="header"> <a href="/">Global Christian Taxonomy</a></h1>
-				</div>
+		<header class="site-header">
+			<a href="/">
+				<img src="/logo.svg" />
+				<h1 style="site-title">Global Christian Taxonomy</h1>
+			</a>
+			<LanguageSelector />
+		</header>
 
-				<div class="col-2">
-					<LanguageSelector />
-				</div>
-			</div>
-
+		<main class="site-main">
 			<slot />
-		</div>
-
+		</main>
 	</body>
 </html>
 
