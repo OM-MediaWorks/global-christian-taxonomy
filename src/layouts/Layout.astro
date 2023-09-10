@@ -8,12 +8,13 @@ interface Props {
 }
 
 const { title, bodyClass } = Astro.props;
+const language = Astro.params.language ?? 'en'
 const languages = await getLanguages()
 const pageTitle = `${title} | Global Christian Taxonomy`
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={language}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={pageTitle}>
@@ -36,10 +37,6 @@ const pageTitle = `${title} | Global Christian Taxonomy`
 		<slot />
 	</body>
 </html>
-
-<script type="module">
-	import "/applyVisualLanguageFiltering.js"
-</script>
 
 <style is:global>
 	@import url('../scss/style.scss');

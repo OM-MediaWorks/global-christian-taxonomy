@@ -5,20 +5,31 @@ declare global {
     interface Window { refresh: () => void; }
 }
 ---
-<select class="language-switcher form-select" id="language-switcher">
+<select data-languages={Object.keys(languages).join(',')} class="language-switcher form-select" id="language-switcher">
     {Object.entries(languages)
-        .map(async ([langcode, { label, percentage }]) => <option value={langcode} data-lang-not_available={langcode}>
+        .map(async ([langcode, { label, percentage }]) => <option value={langcode === 'en' ? '' : langcode} data-lang-not_available={langcode}>
             {`${label}${percentage === 100 ? '' : ` (${percentage}%)`}`}
         </option>)}
 </select>
 
 <script>
+    const knownLanguages = (document.querySelector('[data-languages]') as HTMLElement)?.dataset.languages?.split(',') ?? []
+    const pageLanguage = document.documentElement.getAttribute('lang')
     const languageSwitcher = document.querySelector('#language-switcher')!
-    const selectedOption = languageSwitcher.querySelector(`option[value="${localStorage.langCode}"]`)
+    const selectedOption = languageSwitcher.querySelector(`option[value="${pageLanguage}"]`)
     selectedOption?.setAttribute('selected', '')
 
     languageSwitcher.addEventListener('change', (event: any) => {
-        localStorage.langCode = event.target.value
-        window.refresh()
+        const parts = location.pathname.trim().split('/').filter(Boolean)
+
+        if (knownLanguages.includes(parts[0])) {
+            parts[0] = event.target.value
+        }
+        else {
+            parts.unshift(event.target.value)
+        }
+
+        /** @ts-ignore */
+        window.location = `/${parts.join('/')}`
     })
 </script>
