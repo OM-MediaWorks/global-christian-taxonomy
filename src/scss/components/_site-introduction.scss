@@ -4,15 +4,16 @@
     justify-content: center;
     align-items: center;
     position: relative;
-
+    
     .top {
+        font-family: 'Roboto Slab', serif;
         width: 100%;
         padding-top: 2rem;
         color: white;
         position: relative;
         text-align: center;
         font-size: 3rem;
-        padding-bottom: 5rem;
+        padding-bottom: 6rem;
         margin-bottom: -5rem;
 
         &:after {

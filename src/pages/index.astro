@@ -26,16 +26,19 @@ const languages = await getLanguages()
 		</div>
 	</div>)}
 
-	<div class="overview grid categories">
-		{categories.map(category => <Category category={category} />)}
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-	</div>
+	<main class="site-main">
+		<div class="overview grid categories">
+			{categories.map(category => <Category category={category} />)}
+			<div class="empty circle category"></div>
+			<div class="empty circle category"></div>
+			<div class="empty circle category"></div>
+			<div class="empty circle category"></div>
+			<div class="empty circle category"></div>
+			<div class="empty circle category"></div>
+			<div class="empty circle category"></div>
+			<div class="empty circle category"></div>
+			<div class="empty circle category"></div>
+		</div>	
+	</main>
+
 </Layout>

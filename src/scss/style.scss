@@ -7,6 +7,10 @@
 @import './components/site-header';
 @import './components/site-introduction';
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --grayDark: #3a3939;
 }

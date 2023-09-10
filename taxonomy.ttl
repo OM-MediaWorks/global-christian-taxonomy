@@ -50,7 +50,7 @@ gctl:en
     gctl:description """
         How can we as Christian media publishers work better together? How can we make sure that when our media is used in a broader context, it is categorized correctly? 
 
-        The Global Christian Taxonomy is an answer to that question!
+        This Global Christian Taxonomy is an answer to that question!
     """ ;
     rdfs:label "English" ;
     gctl:welcome """
