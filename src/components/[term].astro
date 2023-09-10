@@ -4,7 +4,7 @@ import { getCategories, getLanguages, getCategory } from "@/helpers/store"
 
 export async function getStaticPaths() {
 	const categories = await getCategories()
-	const languages = [...Object.keys(await getLanguages())] //.filter(language => language !== 'en')
+	const languages = [...Object.keys(await getLanguages())].filter(language => language !== 'en')
 	return languages.flatMap(language => categories.map(category => ({ params: { language, term: category.slug }})))
 }
 

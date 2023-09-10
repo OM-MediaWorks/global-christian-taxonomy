@@ -6,7 +6,7 @@ import { image } from '@/helpers/image';
 import Markdown from '@/components/Markdown.astro';
 
 export async function getStaticPaths() {
-	const languages = [...Object.keys(await getLanguages())] //.filter(language => language !== 'en')
+	const languages = [...Object.keys(await getLanguages())].filter(language => language !== 'en')
 	return languages.map(language => ({ params: { language }}))
 }
 
