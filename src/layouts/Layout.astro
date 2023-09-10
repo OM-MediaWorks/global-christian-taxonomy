@@ -1,11 +1,14 @@
 ---
 import LanguageSelector from '../components/LanguageSelector.astro'
+import { getLanguages } from "../helpers/store"
 
 interface Props {
 	title: string;
+	bodyClass?: string
 }
 
-const { title } = Astro.props;
+const { title, bodyClass } = Astro.props;
+const languages = await getLanguages()
 const pageTitle = `${title} | Global Christian Taxonomy`
 ---
 
@@ -19,12 +22,14 @@ const pageTitle = `${title} | Global Christian Taxonomy`
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 	</head>
-	<body>
+	<body class={bodyClass ?? ''}>
 		<header class="site-header">
-			<a href="/">
-				<img src="/logo.svg" />
-				<h1 style="site-title">Global Christian Taxonomy</h1>
+			<a class="site-link" href="/">
+				<img src="/logo.svg" class="site-logo" />
+
+				{Object.values(languages).map(({title, bcp47}) => <h1 data-lang-hidable={bcp47} class="site-title">{title}</h1>)}
 			</a>
+
 			<LanguageSelector />
 		</header>
 

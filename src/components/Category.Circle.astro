@@ -1,21 +1,12 @@
 ---
 const { category } = Astro.props;
+import { image } from '../helpers/image'
+import uniqolor from 'uniqolor';
 ---
-<a class="category circle" style="width: 18rem;" href={category.slug}>
-    {category.image ? <img class="background-image" src={`https://wsrv.nl/?url=${category.image}&w=200&h=200&fit=cover&a=attention`} /> : null} 
+<a class={`category circle ${category.image ? 'has-image' : ''}`} style={`--color: ${uniqolor(category.slug, { lightness: [10, 40] }).color}`} href={category.slug}>
+    {category.image ? <img class="background-image" loading="lazy" src={image(category.image, 145)} /> : null} 
 
-    <div class="body">
-
-        <div class="shape shape-left"></div>
-        <div class="shape shape-right"></div>
-    
-        {Object.entries(category.labels).map(([language, value]) => {
-            return <h5 class="title" data-lang-hidable={language}>{value}</h5>
-                <p class="text" data-lang-hidable={language}>
-                    <span>
-                        URI = <span>gct:{category.slug}</span>
-                    </span>
-                </p>
-        })}
-    </div>
+    {Object.entries(category.labels).map(([language, value]) => {
+        return <h2 class="title" data-display="flex" data-lang-hidable={language}>{value}</h2>
+    })}
 </a>

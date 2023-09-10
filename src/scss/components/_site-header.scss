@@ -1,0 +1,31 @@
+.site-header {
+    display: flex;
+    position: relative;
+    padding: 20px;
+    align-items: center;
+
+    .site-link {
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+        color: black;
+        text-decoration: none;
+    }
+
+    .site-logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .site-title {
+        margin: 0;
+        font-weight: 900;
+    }
+
+    .language-switcher {
+        flex: 0 0 200px;
+        margin-inline-start: auto;
+    }
+}

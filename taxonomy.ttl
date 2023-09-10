@@ -47,14 +47,19 @@ gct:family-and-relationships a gct:Category;
 
 gctl:en 
     a gctl:Language ;
-    gctl:siteDescription """
-		This taxonomy is a work in progress. Over time we would love to see this taxonomy being adopted by many Christian publishers and media administrators.
-		Our goal is to make it easy to search through sources of Christian media as if it is one data source.
-		A little preview of that idea is visible at [bundled.media](https://bundled.media).
+    gctl:description """
+        How can we as Christian media publishers work better together? How can we make sure that when our media is used in a broader context, it is categorized correctly? 
 
-		We would love to have contributions to the translations. This is possible via pull requests on the [GitHub repository](https://github.com/OM-MediaWorks/global-christian-taxonomy).
+        The Global Christian Taxonomy is an answer to that question!
     """ ;
     rdfs:label "English" ;
+    gctl:welcome """
+    Welcome to the 
+    
+    __Global Christian Taxonomy__
+    """ ;
+    gctl:title "Global Christian Taxonomy" ;
+    gctl:background "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e" ;
     gctl:bcp47 "en".
 
 gctl:jp 
@@ -64,7 +69,14 @@ gctl:jp
 
 gctl:nl 
     a gctl:Language ;
+    gctl:welcome """
+    Welkom tot de
+
+    __Globale Christelijke Taxonomie__
+    """ ;
+    gctl:title "Globale Christelijke Taxonomie" ;
     rdfs:label "Nederlands" ;
+    gctl:background "https://images.unsplash.com/photo-1592890288564-76628a30a657" ;
     gctl:bcp47 "nl".
 
 gctl:es

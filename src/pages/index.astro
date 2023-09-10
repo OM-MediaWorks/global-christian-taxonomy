@@ -1,18 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { getCategories, getSiteDescriptions } from "../helpers/store"
+import { getCategories, getLanguages } from "../helpers/store"
 import { Markdown } from '@astropub/md'
 import Category from '../components/Category.Circle.astro'
+import { image } from '../helpers/image';
 
 const categories = await getCategories()
-const siteDescriptions = await getSiteDescriptions()
+const languages = await getLanguages()
 ---
 
-<Layout title="Overview">
+<Layout title="Overview" bodyClass="home">
 
-	{siteDescriptions.map(({description, bcp47}) => <div data-lang-hidable={bcp47}><Markdown of={description} /></div>)}
+	{Object.values(languages).map(({background, bcp47, welcome , description}) => <div data-lang-hidable={bcp47} data-display="flex" class="site-introduction">
+		<div class="top">
+			<img loading="lazy" class="image" src={image(background, 1280, 300)} />
+			<div class="title"><Markdown of={welcome} /></div>		
+		</div>
+
+		<div class="logo">
+			<img src="/logo.svg" />
+		</div>
+
+		<div class="description">
+			<Markdown of={description ?? ''} />
+		</div>
+	</div>)}
+
 	<div class="overview grid categories">
 		{categories.map(category => <Category category={category} />)}
+		<div class="empty circle category"></div>
+		<div class="empty circle category"></div>
+		<div class="empty circle category"></div>
 		<div class="empty circle category"></div>
 		<div class="empty circle category"></div>
 		<div class="empty circle category"></div>
