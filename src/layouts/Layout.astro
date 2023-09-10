@@ -8,13 +8,13 @@ interface Props {
 }
 
 const { title, bodyClass } = Astro.props;
-const language = Astro.params.language ?? 'en'
 const languages = await getLanguages()
+const language = languages[Astro.params.language ?? 'en']
 const pageTitle = `${title} | Global Christian Taxonomy`
 ---
 
 <!DOCTYPE html>
-<html lang={language}>
+<html lang={Astro.params.language ?? 'en'}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={pageTitle}>
@@ -28,7 +28,7 @@ const pageTitle = `${title} | Global Christian Taxonomy`
 			<a class="site-link" href="/">
 				<img src="/logo.svg" class="site-logo" />
 
-				{Object.values(languages).map(({title, bcp47}) => <h1 data-lang-hidable={bcp47} class="site-title">{title}</h1>)}
+				<h1 class="site-title">{language.title}</h1>
 			</a>
 
 			<LanguageSelector />

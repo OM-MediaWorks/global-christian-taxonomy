@@ -1,0 +1,13 @@
+---
+
+import { renderMarkdown } from '@astrojs/markdown-remark'
+
+export class HTMLString extends String {
+	get [Symbol.toStringTag]() {
+		return 'HTMLString'
+	}
+}
+
+const output = await renderMarkdown(Astro.props.of ?? '', {}).then(result => new HTMLString(result.code))
+---
+{output}

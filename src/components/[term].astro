@@ -1,0 +1,24 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import { getCategories, getLanguages, getCategory } from "@/helpers/store"
+
+export async function getStaticPaths() {
+	const categories = await getCategories()
+	const languages = [...Object.keys(await getLanguages())] //.filter(language => language !== 'en')
+	return languages.flatMap(language => categories.map(category => ({ params: { language, term: category.slug }})))
+}
+
+const category = await getCategory(Astro.params.term)
+if (!category) throw new Error('Category does not exist')
+const pageLanguage = Astro.params.language ?? 'en'
+const categoryLabel = category.labels[pageLanguage]
+
+---
+<Layout title={category.labels.en}>
+	<main class="site-main">
+		{category.image ? <img src={category.image} width="300" height="300"/> : null}
+		<div>
+			{categoryLabel} ({pageLanguage})
+		</div>
+	</main>
+</Layout>
