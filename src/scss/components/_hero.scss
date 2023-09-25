@@ -11,6 +11,7 @@
         left: 0;
         object-fit: cover;
         width: 100%;
+        opacity: .6;
     }
 
     > .title {
@@ -54,6 +55,13 @@
             margin-inline: auto;
             background-color: white;
             position: relative;
+        }
+
+        &.has-image {
+            &:after {
+                content: '';
+                background: rgba(black, .3);
+            }
         }
     }
 

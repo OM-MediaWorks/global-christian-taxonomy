@@ -7,6 +7,10 @@
     z-index: 1;
     font-size: 1.7rem;
 
+    p {
+        margin: 0;
+    }
+
     .top {
         width: 100%;
         padding-top: 2rem;
@@ -36,12 +40,13 @@
         }
     }
 
+    .title {
+        padding-inline: var(--inlinePadding);
+        margin-block: 1rem;
+    }
+
     .description {
         padding-inline: var(--inlinePadding);
-
-        p {
-            margin-top: 0;
-        }
     }
 
     .image {
