@@ -35,7 +35,6 @@ const pageLanguage = Astro.params.language ?? 'en'
 
     languageSwitcher.addEventListener('change', (event: any) => {
         const parts = location.pathname.trim().split('/').filter(Boolean)
-
         
         if (knownLanguages.includes(parts[0])) {
             parts[0] = event.target.value
