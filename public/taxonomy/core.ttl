@@ -1,0 +1,23 @@
+@prefix gct: <http://taxonomy.mediaworks.global/>.
+@prefix schema: <https://schema.org/>.
+
+gct:bible-studies a gct:Category .
+gct:bibles-and-bible-stories a gct:Category .
+gct:bibles-and-bible-stories schema:image "https://images.unsplash.com/photo-1497621122273-f5cfb6065c56" .
+gct:biographies-and-memoirs a gct:Category .
+gct:children a gct:Category .
+gct:christian-living a gct:Category .
+gct:comics-and-graphic-novels a gct:Category .
+gct:devotionals a gct:Category .
+gct:devotionals schema:image "https://images.unsplash.com/photo-1628200955551-1ecececa1700" .
+gct:educational a gct:Category .
+gct:ethics-and-social-issues a gct:Category .
+gct:family-and-relationships a gct:Category .
+gct:ministry-and-evangelism a gct:Category .
+gct:novels a gct:Category .
+gct:sermons a gct:Category .
+gct:spiritual-and-personal-growth a gct:Category .
+gct:study-materials a gct:Category .
+gct:support-and-counseling a gct:Category .
+gct:teens-and-young-adults a gct:Category .
+gct:theology a gct:Category .

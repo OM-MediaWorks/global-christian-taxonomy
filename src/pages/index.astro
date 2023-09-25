@@ -1,9 +1,9 @@
 ---
-import Layout from '@/layouts/Layout.astro'
 import { getCategories, getLanguages } from "@/helpers/store"
 import Category from '@/components/Category.Circle.astro'
 import { image } from '@/helpers/image';
 import Markdown from '@/components/Markdown.astro';
+import Layout from '@/layouts/Layout.astro'
 
 export async function getStaticPaths() {
 	const languages = [...Object.keys(await getLanguages())].filter(language => language !== 'en')
@@ -33,7 +33,10 @@ const language = languages[Astro.params.language ?? 'en']
 	</div>
 
 	<main class="site-main">
-		<div class="overview grid categories">
+
+		<input type="search" id="grid-filter" class="search-input" placeholder="Search..." />
+
+		<div class="overview grid categories" id="categories-grid">
 			{categories.map(category => <Category category={category} />)}
 			<div class="empty circle category"></div>
 			<div class="empty circle category"></div>
@@ -48,3 +51,22 @@ const language = languages[Astro.params.language ?? 'en']
 	</main>
 
 </Layout>
+
+<script>
+	const search = document.querySelector('#grid-filter') as HTMLInputElement
+
+	const applySearch = (searchWord: string) => {
+		const categories = [...document.querySelectorAll('#categories-grid .category:not(.empty)')]
+		for (const category of categories) {
+			const searchwords = (category as HTMLDivElement).dataset.searchwords
+			const title = category.querySelector('.title')?.textContent?.toLocaleLowerCase()
+			const text = searchwords + ' ' + title
+			const visible = text.includes(searchWord.toLocaleLowerCase())
+
+			category.classList[visible ? 'remove' : 'add']('hidden')
+		}
+	}
+
+	search?.addEventListener('keyup', () => applySearch(search.value))
+	applySearch(search.value)
+</script>

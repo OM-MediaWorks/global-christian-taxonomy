@@ -4,11 +4,19 @@ import { Literal, Parser, Store } from 'n3'
 import type { GrapoiPointer } from '../../types'
 import fs from 'fs/promises'
 import dedent from "dedent";
+import uniqolor from 'uniqolor';
 
 type Category = { 
     uri: string, 
     slug: string, 
+    color: string,
+    searchWords: {
+        [key: string]: Array<string>
+    },
     labels: {
+        [key: string]: string
+    }
+    descriptions: {
         [key: string]: string
     }
     image: string
@@ -26,11 +34,16 @@ type Language = {
 
 const getStore = async () => {
     const parser = new Parser()
-    const data = await fs.readFile('taxonomy.ttl', { encoding: 'utf8' })
-    const quads = await parser.parse(data)
+
+    const files = await fs.readdir('./public/taxonomy')
 
     const store = new Store()
-    store.addQuads(quads)
+    for (const file of files) {
+        const data = await fs.readFile(`./public/taxonomy/${file}`, { encoding: 'utf8' })
+        const quads = await parser.parse(data)    
+        store.addQuads(quads)
+    }
+
     return store
 }
 
@@ -74,10 +87,25 @@ export const getCategories = async (): Promise<Array<Category>> => {
     const pointer = grapoi({ dataset: store, term: gct('Category') }).in([rdf('type')]) as GrapoiPointer
 
     return pointer.map(categoryPointer => {
+        const searchWords: { [key: string]: Array<string> } = {}
+
+        for (const term of categoryPointer.out([gct('searchWords')]).terms) {
+            if (!searchWords[(term as Literal).language]) {
+                searchWords[(term as Literal).language] = []
+            }
+
+            searchWords[(term as Literal).language].push(term.value)
+        }
+        
+        const slug = categoryPointer.term.value.split('/').pop()!
+
         return {
             uri: categoryPointer.term.value,
-            slug: categoryPointer.term.value.split('/').pop(),
+            color: uniqolor(slug, { lightness: [10, 40] }).color,
+            slug,
+            searchWords,
             labels: Object.fromEntries(categoryPointer.out([rdfs('label')]).terms.map(term => ( [(term as Literal).language, term.value ]))),
+            descriptions: Object.fromEntries(categoryPointer.out([rdfs('comment')]).terms.map(term => ( [(term as Literal).language, term.value ]))),
             image: categoryPointer.out([schema('image')]).value // ?? backgroundFallback
         }
     })

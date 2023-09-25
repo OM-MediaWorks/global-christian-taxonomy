@@ -1,0 +1,43 @@
+@prefix gct: <http://taxonomy.mediaworks.global/>.
+@prefix gctl: <http://taxonomy.mediaworks.global/language/>.
+
+@prefix schema: <https://schema.org/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+gctl:en 
+    a gctl:Language ;
+    gctl:description """
+        With the goal of unifying categories for all Christian media so that christians all over the world can search for media specific to their needs.
+    """ ;
+    rdfs:label "English" ;
+    gctl:welcome """
+    Welcome to the 
+    
+    __Global Christian Taxonomy__
+    """ ;
+    gctl:title "Global Christian Taxonomy" ;
+    gctl:background "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e" ;
+    gctl:bcp47 "en".
+
+gctl:jp 
+    a gctl:Language ;
+    rdfs:label "日本語" ;
+    gctl:bcp47 "jp".
+
+gctl:nl 
+    a gctl:Language ;
+    gctl:welcome """
+    Welkom tot de
+
+    __Globale Christelijke Taxonomie__
+    """ ;
+    gctl:title "Globale Christelijke Taxonomie" ;
+    rdfs:label "Nederlands" ;
+    gctl:background "https://images.unsplash.com/photo-1592890288564-76628a30a657" ;
+    gctl:bcp47 "nl".
+
+gctl:es
+    a gctl:Language ;
+    rdfs:label "Español" ;
+    gctl:bcp47 "es".

@@ -45,26 +45,14 @@ export default defineConfig({
 
                     copyInjectRoute({
                         pattern: '[language]',
-                        entryPoint: 'src/components/index.astro',
+                        entryPoint: 'src/pages/index.astro',
                         variant: 'a'
-                    })
-
-                    copyInjectRoute({
-                        pattern: '/',
-                        entryPoint: 'src/components/index.astro',
-                        variant: 'b'
                     })
 
                     copyInjectRoute({
                         pattern: '[language]/[term]',
-                        entryPoint: 'src/components/[term].astro',
+                        entryPoint: 'src/pages/[term].astro',
                         variant: 'a'
-                    })
-
-                    copyInjectRoute({
-                        pattern: '[term]',
-                        entryPoint: 'src/components/[term].astro',
-                        variant: 'b'
                     })
                 }
             }

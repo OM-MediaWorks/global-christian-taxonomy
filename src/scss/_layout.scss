@@ -1,4 +1,16 @@
-.site-main, .site-header, .site-introduction {
-    max-width: 1280px;
+body {
+    background-color: var(--grayLight);
+}
+
+.site-main, .site-header, .site-introduction, .page-hero {
+    max-width: var(--maxWidth);
     margin-inline: auto;
+    background-color: white;
+    display: block;
+    position: relative;
+}
+
+.site-main {
+    padding-inline: var(--inlinePadding);
+    padding-block: var(--blockPadding);
 }

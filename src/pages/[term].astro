@@ -1,0 +1,60 @@
+---
+import { getCategories, getLanguages, getCategory } from "@/helpers/store"
+import { image } from "@/helpers/image"
+import Layout from "@/layouts/Layout.astro"
+
+export async function getStaticPaths() {
+	const categories = await getCategories()
+	const languages = [...Object.keys(await getLanguages())].filter(language => language !== 'en')
+	return languages.flatMap(language => categories.map(category => ({ params: { language, term: category.slug }})))
+}
+
+const languages = await getLanguages()
+const category = await getCategory(Astro.params.term)
+if (!category) throw new Error('Category does not exist')
+const pageLanguage = Astro.params.language ?? 'en'
+const categoryLabel = category.labels[pageLanguage]
+const categoryDescription = category.descriptions[pageLanguage]
+const otherLanguages = Object.fromEntries(Object.keys(category.labels)
+	.filter(langCode => langCode !== pageLanguage)
+	.map(langCode => [langCode, languages[langCode].label]))
+const categorySearchWords = category.searchWords[pageLanguage]
+const formatter = new Intl.ListFormat(pageLanguage, { style: 'long', type: 'conjunction' });
+
+---
+<Layout title={category.labels.en}>
+	<div class={`hero ${category.image ? 'has-image' : ''}`} style={{ '--color': category.color}}>
+		{category.image ? <img src={image(category.image, 1280, 400)} class="image" /> : null}
+		<div class="title">{categoryLabel}</div>
+	</div>
+
+	<main class="site-main">
+
+		{categoryDescription ? <div class="description field">{categoryDescription}</div> : null}	
+
+		<div class="field identifier">
+			<label class="label">Identifier:</label>
+			<div class="items">
+				<span class="item">gct:{Astro.params.term}</span>
+			</div>
+		</div>
+
+		{Object.keys(otherLanguages).length ? 
+		<div class="field other-translations">
+			<label class="label">Other translations:</label>
+			<div class="items">
+				{Object.entries(otherLanguages).map(([langCode, otherLanguage]) => <a href={`${langCode !== 'en' ? '/' + langCode : ''}/${Astro.params.term}`} class="item link-outline">{otherLanguage}</a>)}	
+			</div>
+		</div> : null}
+
+		{categorySearchWords ?
+		<div class="field search-words">
+			<label class="label">Search words:</label>
+			<div class="items">
+				<span class="item">{formatter.format(categorySearchWords)}</span>
+			</div>
+		</div> : null}
+
+		
+	</main>
+</Layout>

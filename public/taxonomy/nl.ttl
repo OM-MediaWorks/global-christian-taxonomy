@@ -1,0 +1,94 @@
+@prefix gct: <http://taxonomy.mediaworks.global/>.
+@prefix gctl: <http://taxonomy.mediaworks.global/language/>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+gct:bible-studies
+    rdfs:label """Bijbelstudies"""@nl ;
+    rdfs:comment """Studie materiaal met de bijbel of bijbelboeken als focus. Kan gebruikt worden voor groepen of individuelen."""@nl ;
+    gct:searchWords "religieuze studie"@nl, "onderwijs"@nl .
+
+gct:bibles-and-bible-stories
+    rdfs:label """Bijbel en Bijbel verhalen"""@nl ;
+    rdfs:comment """De bijbel, delen van de bijbel en de boeken die gaan over bijbel verhalen."""@nl ;
+    gct:searchWords "religieuze tekst"@nl, "Het Heilige schrift"@nl .
+
+gct:biographies-and-memoirs
+    rdfs:label """Biografieën & Memoirs"""@nl ;
+    rdfs:comment """Media die levens ervaringen en verhaal delen van een echt persoon. Geschreven of verteld bij het individueel of bij iemand anders."""@nl ;
+    gct:searchWords "levensverhaal"@nl, "bio"@nl, "autobiografie"@nl, "dagboek"@nl, "verslag"@nl .
+
+gct:children
+    rdfs:label """Kinderen"""@nl ;
+    rdfs:comment """Media gemaakt voor kinderen. Baby tot 13 jaar oud."""@nl ;
+    gct:searchWords "jongen"@nl, "meisje"@nl, "jeugd"@nl, "kind"@nl .
+
+# gct:christian-living
+#     rdfs:label """Christian Living"""@nl ;
+#     rdfs:comment """Media about living out the Christian faith. Encouraging people in their walk with Jesus and helping guide them along the way."""@nl ;
+#     gct:searchWords "devotion"@nl, "divine living"@nl, "godly living"@nl, "faithful living"@nl .
+
+# gct:comics-and-graphic-novels
+#     rdfs:label """Comics & Graphic Novels"""@nl ;
+#     rdfs:comment """Stories that are told through comics art or illustrations in sequential panels to represent the scenes."""@nl ;
+#     gct:searchWords "comic strip"@nl, "animation"@nl, "cartoon"@nl .
+
+# gct:devotionals
+#     rdfs:label """Devotionals"""@nl ;
+#     rdfs:comment """Material that can be used for devotions or quiet time with God. Whether through Biblical passages, prayer, or other encouraging faith-based topics."""@nl ;
+#     gct:searchWords "quiet time"@nl, "religious worship"@nl, "worship"@nl, "observance"@nl, "prayers"@nl .
+
+# gct:educational
+#     rdfs:label """Educational"""@nl ;
+#     rdfs:comment """Material that teaches/tells you about a certain subject. E.g. religion, the Bible, history, languages, culture, etc."""@nl ;
+#     gct:searchWords "informative"@nl, "learning"@nl, "teaching"@nl, "enlightening"@nl .
+
+# gct:ethics-and-social-issues
+#     rdfs:label """Ethics & Social Issues"""@nl ;
+#     rdfs:comment """Media that deals with social justice issues and morality in our world and culture from a Christian viewpoint."""@nl ;
+#     gct:searchWords "morals"@nl, "morality"@nl, "rights and wrongs"@nl, "ideology"@nl, "values"@nl, "equality"@nl, "social justice"@nl .
+
+# gct:family-and-relationships
+#     rdfs:label """Family & Relationships"""@nl ;
+#     rdfs:comment """Material giving advice and/or insight into family dynamics, parenting, and dating/marriage relationships."""@nl ;
+#     gct:searchWords "dating"@nl, "marriage"@nl, "relation"@nl, "connection"@nl, "parenting"@nl, "household"@nl .
+
+# gct:ministry-and-evangelism
+#     rdfs:label """Ministry & Evangelism"""@nl ;
+#     rdfs:comment """Material about sharing the gospel and doing ministry/missions."""@nl ;
+#     gct:searchWords "missions"@nl, "discipleship"@nl, "sharing the gospel"@nl, "spreading the word"@nl, "making disciples"@nl .
+
+# gct:novels
+#     rdfs:label """Novels"""@nl ;
+#     rdfs:comment """Fictitious stories, mostly for entertainment. This can include stories based on a true story where it dramatizes the events more than it would in a biography."""@nl ;
+#     gct:searchWords "fiction"@nl, "narrative"@nl, "drama"@nl .
+
+# gct:sermons
+#     rdfs:label """Sermons"""@nl ;
+#     rdfs:comment """A talk or written text on a moral, Biblical, or religious subject shared during a church service or Christian event."""@nl ;
+#     gct:searchWords "preaching"@nl, "talks"@nl, "speech"@nl, "lesson"@nl, "teaching"@nl, "homily"@nl, "oration"@nl .
+
+# gct:spiritual-and-personal-growth
+#     rdfs:label """Spiritual & Personal Growth"""@nl ;
+#     rdfs:comment """Media that helps a person grow spiritually and/or personally. Drawing them closer to God through spiritual disciplines, encouragements, and teachings. Giving insight into different sins and temptations people will encounter and how a person can overcome them."""@nl ;
+#     gct:searchWords "self-growth"@nl, "personal development"@nl, "spirituality"@nl, "personal enrichment"@nl, "spiritual development"@nl, "improvement"@nl .
+
+# gct:study-materials
+#     rdfs:label """Study Materials"""@nl ;
+#     rdfs:comment """Learning materials that help in the further study of something. Whether that is the Bible or another topic. E.g. Bible reference, workbook, dictionary, etc."""@nl ;
+#     gct:searchWords "learning material"@nl, "teaching aid"@nl, "teaching material"@nl, "learning resources"@nl .
+
+# gct:support-and-counseling
+#     rdfs:label """Support & Counseling"""@nl ;
+#     rdfs:comment """Material for people going through difficult times or struggling with something in their life. This media can help them overcome their issues and encourage them through the hard times. """@nl ;
+#     gct:searchWords "help"@nl, "advising"@nl, "encouragement"@nl, "therapy"@nl, "direction"@nl .
+
+# gct:teens-and-young-adults
+#     rdfs:label """Teens & Young Adults"""@nl ;
+#     rdfs:comment """Media created for teenagers and young adults."""@nl ;
+#     gct:searchWords "teenagers"@nl, "YA"@nl, "adolescents"@nl, "minors"@nl, "youth"@nl, "juvenile"@nl, "boy"@nl, "girl"@nl .
+
+# gct:theology
+#     rdfs:label """Theology"""@nl ;
+#     rdfs:comment """Media that helps a person gain a deeper understanding of God, faith, religion, and the message of the gospel according to the Bible."""@nl ;
+#     gct:searchWords "belief"@nl, "faith"@nl, "doctrine"@nl, "religion"@nl, "philosophy"@nl, "divinity"@nl .
+

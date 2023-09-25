@@ -53,4 +53,8 @@
         height: 0;
         aspect-ratio: none;
     }
+
+    &.hidden {
+        display: none;
+    }
 }

@@ -1,6 +1,7 @@
 ---
 import LanguageSelector from '../components/LanguageSelector.astro'
 import { getLanguages } from "../helpers/store"
+import '../scss/style.scss';
 
 interface Props {
 	title: string;
@@ -11,6 +12,8 @@ const { title, bodyClass } = Astro.props;
 const languages = await getLanguages()
 const language = languages[Astro.params.language ?? 'en']
 const pageTitle = `${title} | Global Christian Taxonomy`
+const pageLanguage = Astro.params.language ?? 'en'
+
 ---
 
 <!DOCTYPE html>
@@ -25,7 +28,7 @@ const pageTitle = `${title} | Global Christian Taxonomy`
 	</head>
 	<body class={bodyClass ?? ''}>
 		<header class="site-header">
-			<a class="site-link" href="/">
+			<a class="site-link" href={pageLanguage === 'en' ? '/' : `/${pageLanguage}`}>
 				<img src="/logo.svg" class="site-logo" />
 
 				<h1 class="site-title">{language.title}</h1>
@@ -37,7 +40,3 @@ const pageTitle = `${title} | Global Christian Taxonomy`
 		<slot />
 	</body>
 </html>
-
-<style is:global>
-	@import url('../scss/style.scss');
-</style>

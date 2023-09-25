@@ -4,13 +4,27 @@ const languages = await getLanguages()
 declare global {
     interface Window { refresh: () => void; }
 }
+const pageLanguage = Astro.params.language ?? 'en'
+
 ---
-<select data-languages={Object.keys(languages).join(',')} class="language-switcher form-select" id="language-switcher">
+<div data-languages={Object.keys(languages).join(',')} class="language-switcher" id="language-switcher">
+    <select class="mobile">
     {Object.entries(languages)
-        .map(async ([langcode, { label, percentage }]) => <option value={langcode === 'en' ? '' : langcode} data-lang-not_available={langcode}>
+        .map(async ([langcode, { label, percentage }]) => <>
+        <option selected={pageLanguage === langcode} value={langcode === 'en' ? '' : langcode}>
+            {langcode}
+        </option>
+        </>)}
+    </select>
+    <select class="desktop">
+    {Object.entries(languages)
+        .map(async ([langcode, { label, percentage }]) => <>
+        <option selected={pageLanguage === langcode} value={langcode === 'en' ? '' : langcode}>
             {`${label}${percentage === 100 ? '' : ` (${percentage}%)`}`}
-        </option>)}
-</select>
+        </option>
+        </>)}
+    </select>
+</div>
 
 <script>
     const knownLanguages = (document.querySelector('[data-languages]') as HTMLElement)?.dataset.languages?.split(',') ?? []
@@ -22,6 +36,7 @@ declare global {
     languageSwitcher.addEventListener('change', (event: any) => {
         const parts = location.pathname.trim().split('/').filter(Boolean)
 
+        
         if (knownLanguages.includes(parts[0])) {
             parts[0] = event.target.value
         }
@@ -30,6 +45,6 @@ declare global {
         }
 
         /** @ts-ignore */
-        window.location = `/${parts.join('/')}`
+        window.location = `/${parts.filter(Boolean).join('/')}`
     })
 </script>

@@ -1,11 +1,10 @@
 ---
 const { category } = Astro.props;
 import { image } from '../helpers/image'
-import uniqolor from 'uniqolor';
 const language = Astro.params.language ?? 'en'
 const categoryLabel = category.labels[language]
 ---
-<a class={`category circle ${category.image ? 'has-image' : ''}`} style={`--color: ${uniqolor(category.slug, { lightness: [10, 40] }).color}`} href={`${Astro.params.language ? `${Astro.params.language}/` : ''}${category.slug}`}>
+<a data-searchwords={category.searchWords[language]?.join(' ') ?? ''} class={`category circle ${category.image ? 'has-image' : ''}`} style={`--color: ${category.color}`} href={`${Astro.params.language ? `${Astro.params.language}/` : ''}${category.slug}`}>
     {category.image ? <img class="background-image" loading="lazy" src={image(category.image, 145)} /> : null} 
 
     <h2 class="title" data-display="flex" data-lang-hidable={language}>{categoryLabel}</h2>

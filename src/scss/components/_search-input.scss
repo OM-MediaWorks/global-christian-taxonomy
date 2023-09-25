@@ -1,0 +1,9 @@
+.search-input {
+    display: block;
+    padding: 1rem;
+    border-radius: 100px;
+    border: 1px solid var(--grayDark);
+    margin-bottom: 4rem;
+    width: calc(100% - var(--inlinePadding));
+    margin-inline: auto;
+}

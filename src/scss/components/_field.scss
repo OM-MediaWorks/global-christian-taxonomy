@@ -1,0 +1,22 @@
+.field {
+    margin-bottom: 2rem;
+
+    .label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .items {
+        display: flex;
+        gap: 10px;
+    }
+
+    .link-outline {
+        padding: 10px;
+        display: inline-flex;
+        border: 1px solid var(--grayMedium);
+        border-radius: 100px;
+        color: var(--grayDark);
+    }
+}

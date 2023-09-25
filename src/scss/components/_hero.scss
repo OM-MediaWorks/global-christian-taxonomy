@@ -1,0 +1,63 @@
+.hero {
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+    background-color: var(--color);
+
+    > .image {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    > .title {
+        font-size: 2rem;
+        padding: 40px 3rem;
+        z-index: 1;
+        color: white;
+        position: relative;
+    }
+
+    &.has-image {
+        &:after {
+            content: '';
+            display: block;
+            inset: 0;
+            background: rgba(black, .5);
+            position: absolute;
+        }
+    }
+}
+
+@media (min-width: $tablet) {
+    .hero {
+        margin-inline: auto;
+        max-width: var(--maxWidth);
+
+        > .title {
+            font-weight: 900;
+            font-size: 2.2rem;
+            margin: 0;
+            border-radius: 50%;
+            display: flex;
+            text-align: center;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 18rem;
+            height: 18rem;
+            color: black;
+            top: 9rem;
+            margin-inline: auto;
+            background-color: white;
+            position: relative;
+        }
+    }
+
+    .hero + * {
+        padding-top: 9rem;
+    }
+}
