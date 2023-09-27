@@ -1,9 +1,13 @@
 ---
-import { getCategories, getLanguages } from "@/helpers/store"
+import { getCategories, getLanguages, getStore } from "@/helpers/store"
 import Category from '@/components/Category.Circle.astro'
 import { image } from '@/helpers/image';
 import Layout from '@/layouts/Layout.astro'
 import Markdown from '@/components/Markdown.astro';
+import JSONLD  from 'jsonld';
+import grapoi from "grapoi"
+import type { GrapoiPointer } from '@/types'
+import { gct, gctl, rdf, rdfs, schema } from "@/helpers/namespaces"
 
 export async function getStaticPaths() {
 	const languages = [...Object.keys(await getLanguages())].filter(language => language !== 'en')
@@ -13,6 +17,16 @@ export async function getStaticPaths() {
 const categories = await getCategories()
 const languages = await getLanguages()
 const language = languages[Astro.locals.language]
+
+const store = await getStore()
+const pointer = grapoi({ dataset: store, term: gct('Category') }).in([rdf('type')]) as GrapoiPointer
+
+const quads = [...pointer.quads() ?? []]
+
+let doc = await JSONLD.fromRDF(quads);
+doc[0]['@type'] = [...new Set(doc[0]['@type'])]
+
+
 ---
 
 <Layout title="Overview" bodyClass="home">
@@ -47,6 +61,9 @@ const language = languages[Astro.locals.language]
 		<div class="empty circle category"></div>
 		<div class="empty circle category"></div>
 	</div>	
+
+	<script type="application/ld+json" set:html={JSON.stringify(doc, null, 2)}>
+	</script>
 
 </Layout>
 

@@ -37,7 +37,7 @@ type Language = {
     title: string,
 }
 
-const getStore = async () => {
+export const getStore = async () => {
     const parser = new Parser()
 
     const files = await fs.readdir('./public/taxonomy')
