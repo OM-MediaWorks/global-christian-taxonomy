@@ -1,7 +1,7 @@
 ---
 const { category } = Astro.props;
 import { image } from '../helpers/image'
-const language = Astro.params.language ?? 'en'
+const language = Astro.locals.language
 const categoryLabel = category.labels[language]
 ---
 <a 

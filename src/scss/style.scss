@@ -8,10 +8,14 @@ $tablet: 720px;
 @import './components/site-header';
 @import './components/site-introduction';
 @import './components/language-switcher';
-@import './components/description';
 @import './components/hero';
 @import './components/field';
 @import './components/search-input';
+@import './components/main-menu';
+@import './components/site-main';
+@import './components/breadcrumb';
+@import './components/site-footer';
+@import './components/cta-button';
 
 * {
     box-sizing: border-box;
@@ -21,9 +25,11 @@ $tablet: 720px;
     --grayDark: #3a3939;
     --grayMedium: #bdbdbd;
     --grayLight: #e9e9e9;
+    --accent: #1c75bc;
     --inlinePadding: 16px;
     --blockPadding: 20px;
-    --maxWidth: 1280px;
+    --maxWidth: 1080px;
+    --radius: 6px;
 }
 
 @media (min-width: $tablet) {

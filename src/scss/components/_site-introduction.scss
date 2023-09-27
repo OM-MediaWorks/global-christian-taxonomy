@@ -17,8 +17,8 @@
         color: white;
         position: relative;
         text-align: center;
-        font-size: 3rem;
-        line-height: 4rem;
+        font-size: 2rem;
+        line-height: 3rem;
         padding-bottom: 6rem;
         margin-bottom: -5rem;
 
@@ -47,6 +47,10 @@
 
     .description {
         padding-inline: var(--inlinePadding);
+        width: 100%;
+        font-size: 1.6rem;
+        line-height: 3rem;
+        font-weight: 300;
     }
 
     .image {

@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^3.1.0",
+    "@astrojs/mdx": "^1.1.0",
     "astro": "^3",
     "dedent": "^1.5.1",
     "grapoi": "^1.0.1",
@@ -19,7 +20,7 @@
     "uniqolor": "^1.1.0"
   },
   "devDependencies": {
-    "@types/n3": "^1.16.0",
+    "@types/n3": "^1.16.1",
     "@types/rdfjs__namespace": "^2.0.4",
     "sass": "^1.64.1"
   }

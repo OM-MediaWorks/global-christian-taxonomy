@@ -1,0 +1,16 @@
+.main-menu {
+    padding-inline: var(--inlinePadding);
+    padding-block: var(--blockPadding);
+    display: flex;
+    gap: 2rem;
+
+    .link {
+        text-decoration: none;
+        color: var(--grayDark);
+
+        &.active {            
+            color: var(--accent);
+            font-weight: bold;
+        }
+    }
+}

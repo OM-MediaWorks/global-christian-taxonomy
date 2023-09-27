@@ -1,19 +1,23 @@
 ---
+import { image } from '@/helpers/image';
 import LanguageSelector from '../components/LanguageSelector.astro'
 import { getLanguages } from "../helpers/store"
 import '../scss/style.scss';
+import MainMenu from '@/components/MainMenu.astro';
 
 interface Props {
 	title: string;
 	bodyClass?: string
+	frontmatter: {
+		title: string
+	}
 }
 
 const { title, bodyClass } = Astro.props;
 const languages = await getLanguages()
-const language = languages[Astro.params.language ?? 'en']
-const pageTitle = `${title} | Global Christian Taxonomy`
-const pageLanguage = Astro.params.language ?? 'en'
+const language = languages[Astro.locals.language]
 
+const pageTitle = `${title ?? Astro.props.frontmatter.title} | Global Christian Taxonomy`
 ---
 
 <!DOCTYPE html>
@@ -28,7 +32,7 @@ const pageLanguage = Astro.params.language ?? 'en'
 	</head>
 	<body class={bodyClass ?? ''}>
 		<header class="site-header">
-			<a class="site-link" href={pageLanguage === 'en' ? '/' : `/${pageLanguage}`}>
+			<a class="site-link" href={Astro.locals.language === 'en' ? '/' : `/${Astro.locals.language}`}>
 				<img src="/logo.svg" class="site-logo" />
 
 				<h1 class="site-title">{language.title}</h1>
@@ -37,6 +41,29 @@ const pageLanguage = Astro.params.language ?? 'en'
 			<LanguageSelector />
 		</header>
 
-		<slot />
+		<MainMenu />
+
+		<slot name="hero">
+			<div slot="hero" class="hero has-image empty">
+				<img class="image" src={image(language.background, 1000, 200)} />
+			</div>
+		</slot>
+
+		<main class="site-main">
+			<slot />
+		</main>
+
+		<footer class="site-footer">
+			<slot name="footer" />
+
+			<div class="links">
+				<ul>
+					<li><a href="https://github.com/OM-MediaWorks/" target="_blank">GitHub</a></li>
+					<li><a href="https://om.org" target="_blank">OM International</a></li>
+					<li><a href="https://om.org/mediaworks" target="_blank">MediaWorks</a></li>
+				</ul>
+				<img class="image" src={image('https://images.unsplash.com/photo-1604549944235-3e5579b15cc2', 1000)} />
+			</div>
+		</footer>
 	</body>
 </html>

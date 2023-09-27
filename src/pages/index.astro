@@ -12,15 +12,15 @@ export async function getStaticPaths() {
 
 const categories = await getCategories()
 const languages = await getLanguages()
-const language = languages[Astro.params.language ?? 'en']
+const language = languages[Astro.locals.language]
 ---
 
 <Layout title="Overview" bodyClass="home">
 
-	<div class="site-introduction">
+	<div class="site-introduction" slot="hero">
 		<div class="top">
 			<img loading="lazy" class="image" src={image(language.background, 1280, 300)} />
-			<div class="title"><Markdown of={language.welcome} /></div>		
+			<div class="title"><Markdown of={language.welcome} /></div>
 		</div>
 
 		<div class="logo">
@@ -32,23 +32,21 @@ const language = languages[Astro.params.language ?? 'en']
 		</div>
 	</div>
 
-	<main class="site-main">
 
-		<input type="search" id="grid-filter" class="search-input" placeholder="Search..." />
+	<input type="search" id="grid-filter" class="search-input" placeholder="Search..." slot="default" />
 
-		<div class="overview grid categories" id="categories-grid">
-			{categories.map(category => <Category category={category} />)}
-			<div class="empty circle category"></div>
-			<div class="empty circle category"></div>
-			<div class="empty circle category"></div>
-			<div class="empty circle category"></div>
-			<div class="empty circle category"></div>
-			<div class="empty circle category"></div>
-			<div class="empty circle category"></div>
-			<div class="empty circle category"></div>
-			<div class="empty circle category"></div>
-		</div>	
-	</main>
+	<div class="overview grid categories" id="categories-grid" slot="default">
+		{categories.map(category => <Category category={category} />)}
+		<div class="empty circle category"></div>
+		<div class="empty circle category"></div>
+		<div class="empty circle category"></div>
+		<div class="empty circle category"></div>
+		<div class="empty circle category"></div>
+		<div class="empty circle category"></div>
+		<div class="empty circle category"></div>
+		<div class="empty circle category"></div>
+		<div class="empty circle category"></div>
+	</div>	
 
 </Layout>
 

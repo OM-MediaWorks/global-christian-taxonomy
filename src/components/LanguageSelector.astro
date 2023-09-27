@@ -4,7 +4,8 @@ const languages = await getLanguages()
 declare global {
     interface Window { refresh: () => void; }
 }
-const pageLanguage = Astro.params.language ?? 'en'
+
+const pageLanguage = Astro.locals.language
 
 ---
 <div data-languages={Object.keys(languages).join(',')} class="language-switcher" id="language-switcher">

@@ -1,0 +1,44 @@
+.site-main {
+    display: table;
+    width: 100%;
+    position: relative;
+    padding-inline: var(--inlinePadding);
+    padding-block: var(--blockPadding);
+
+    p {
+        line-height: 1.8rem;
+    }
+
+    p > img {
+        float: right;
+        max-width: 100%;
+        margin-block-end: 2rem;
+        margin-inline-start: 2rem;
+        border-radius: var(--radius);
+
+        @media (min-width: $tablet) {
+            max-width: 400px;
+        }
+    }
+
+    h2 {
+        clear: both;
+        font-weight: 100;
+    }
+
+    h3 {
+        margin-top: 2rem;
+        font-weight: 100;
+    }
+
+    h1 + h2 + p + p {
+        color: var(--accent);
+        font-size: 1.1rem;
+        line-height: 2rem;
+        font-weight: 100;
+    }
+
+    p a {
+        color: var(--accent);
+    }
+}

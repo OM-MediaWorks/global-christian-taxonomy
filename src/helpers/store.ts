@@ -27,6 +27,9 @@ type Language = {
     percentage: number,
     description: string,
     bcp47: string,
+    translations: {
+        [key: string]: string
+    },
     background: string,
     welcome: string,
     title: string,
@@ -47,6 +50,8 @@ const getStore = async () => {
     return store
 }
 
+const translationPrefix = gctl().value + 'translation-'
+
 export const getLanguages = async (): Promise<{ [key: string]: Language }> => {
     const store = await getStore()
     const pointers = grapoi({ dataset: store, term: gctl('Language') }).in([rdf('type')]) as GrapoiPointer
@@ -60,10 +65,20 @@ export const getLanguages = async (): Promise<{ [key: string]: Language }> => {
         const description = pointer.out([gctl("description")]).value
         const welcome = pointer.out([gctl("welcome")]).value
         const title = pointer.out([gctl("title")]).value
+        
+        const translations: { [key: string]: string } = {}
+
+        for (const quad of [...pointer.out().quads()]) {
+            if (quad.predicate.value.startsWith(translationPrefix)) {
+                const translationKey = quad.predicate.value.replace(translationPrefix, '')
+                translations[translationKey] = quad.object.value
+            }
+        }
 
         return [langCode, { 
             label, 
             percentage,
+            translations,
             description: description ? dedent`${description}` : '',
             welcome: welcome ? dedent`${welcome}` : '',
             title: title ? dedent`${title}` : '',

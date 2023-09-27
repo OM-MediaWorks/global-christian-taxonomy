@@ -1,0 +1,18 @@
+---
+interface Props {
+	link: string;
+    target?: '_blank'
+}
+
+let localizedLink = (Astro.locals.language === 'en' ? '' : '/' + Astro.locals.language) + Astro.props.link
+
+if (localizedLink.length > 1 && localizedLink.at(-1) === '/') localizedLink = localizedLink.substring(0, localizedLink.length - 1)
+
+---
+<a 
+    target={Astro.props.target} 
+    class={`link ${localizedLink === Astro.url.pathname ? 'active' : ''}`} 
+    href={localizedLink}
+>
+    <slot />
+</a>

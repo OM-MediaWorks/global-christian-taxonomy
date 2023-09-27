@@ -2,7 +2,12 @@ body {
     background-color: var(--grayLight);
 }
 
-.site-main, .site-header, .site-introduction, .page-hero {
+.site-main, 
+.site-header, 
+.site-introduction, 
+.page-hero, 
+.main-menu,
+.site-footer {
     max-width: var(--maxWidth);
     margin-inline: auto;
     background-color: white;
@@ -10,7 +15,30 @@ body {
     position: relative;
 }
 
-.site-main {
-    padding-inline: var(--inlinePadding);
-    padding-block: var(--blockPadding);
+body, html {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    > * {
+        width: 100%;
+    }
+}
+
+body {
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        max-width: var(--maxWidth);
+        background-color: white;
+        height: 100vh;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
 }

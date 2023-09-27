@@ -1,0 +1,9 @@
+---
+import { getLanguages } from "../helpers/store";
+const languages = await getLanguages()
+---
+<ul>
+    <li><a href="/taxonomy/core.ttl">Core</a></li>
+    {Object.entries(languages).map(([langCode, language]) => <li><a href={`/taxonomy/${langCode}.ttl`}>{language.label}</a></li>)}
+
+</ul>

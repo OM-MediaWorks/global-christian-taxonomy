@@ -23,7 +23,7 @@ gct:children
     gct:searchWords "jongen"@nl, "meisje"@nl, "jeugd"@nl, "kind"@nl .
 
 # gct:christian-living
-#     rdfs:label """Christian Living"""@nl ;
+#     rdfs:label """Christelijk leven"""@nl ;
 #     rdfs:comment """Media about living out the Christian faith. Encouraging people in their walk with Jesus and helping guide them along the way."""@nl ;
 #     gct:searchWords "devotion"@nl, "divine living"@nl, "godly living"@nl, "faithful living"@nl .
 

@@ -1,0 +1,19 @@
+.breadcrumb {
+    display: flex;
+    gap: .4rem;
+    margin-bottom: 2rem;
+
+    .divider:after {
+        color: var(--grayMedium);
+        content: '>';
+    }
+
+    .link {
+        text-decoration: none;
+        color: var(--grayMedium);
+    }
+
+    *:last-child {
+        font-weight: bold;
+    }
+}
