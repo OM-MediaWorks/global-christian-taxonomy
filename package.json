@@ -1,5 +1,5 @@
 {
-  "name": "opposite-osiris",
+  "name": "global-christian-taxonomy",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -15,6 +15,7 @@
     "astro": "^3",
     "dedent": "^1.5.1",
     "grapoi": "^1.0.1",
+    "jsonld": "^8.3.1",
     "n3": "^1.17.0",
     "temp": "^0.9.4",
     "uniqolor": "^1.1.0"

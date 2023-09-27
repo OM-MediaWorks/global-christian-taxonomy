@@ -2,6 +2,7 @@
 import { getCategories, getLanguages, getCategory } from "@/helpers/store"
 import { image } from "@/helpers/image"
 import Layout from "@/layouts/Layout.astro"
+import JSONLD  from 'jsonld';
 
 export async function getStaticPaths() {
 	const categories = await getCategories()
@@ -21,6 +22,11 @@ const otherLanguages = Object.fromEntries(Object.keys(category.labels)
 	.map(langCode => [langCode, languages[langCode].label]))
 const categorySearchWords = category.searchWords[pageLanguage]
 const formatter = new Intl.ListFormat(pageLanguage, { style: 'long', type: 'conjunction' });
+
+const quads = [...category.pointer?.out().quads() ?? []]
+
+let doc = await JSONLD.fromRDF(quads);
+doc[0]['@type'] = [...new Set(doc[0]['@type'])]
 ---
 <Layout title={category.labels.en}>
 	<div slot="hero" class={`hero ${category.image ? 'has-image' : ''}`} style={{ '--color': category.color}}>
@@ -68,5 +74,8 @@ const formatter = new Intl.ListFormat(pageLanguage, { style: 'long', type: 'conj
 		<p>Help our common cause by transating the text.</p>
 		<a class="cta-button" href="mailto:info.media@om.org?subject=I would like to translate Global Christian Taxonomy">Translate</a>
 	</div>
+
+	<script type="application/ld+json" set:html={JSON.stringify(doc, null, 2)}>
+	</script>
 
 </Layout>

@@ -10,6 +10,7 @@ type Category = {
     uri: string, 
     slug: string, 
     color: string,
+    pointer?: GrapoiPointer,
     searchWords: {
         [key: string]: Array<string>
     },
@@ -26,6 +27,7 @@ type Language = {
     label: string,
     percentage: number,
     description: string,
+    pointer?: GrapoiPointer,
     bcp47: string,
     translations: {
         [key: string]: string
@@ -52,7 +54,7 @@ const getStore = async () => {
 
 const translationPrefix = gctl().value + 'translation-'
 
-export const getLanguages = async (): Promise<{ [key: string]: Language }> => {
+export const getLanguages = async (includePointers = true): Promise<{ [key: string]: Language }> => {
     const store = await getStore()
     const pointers = grapoi({ dataset: store, term: gctl('Language') }).in([rdf('type')]) as GrapoiPointer
     const categories = await getCategories()
@@ -75,7 +77,7 @@ export const getLanguages = async (): Promise<{ [key: string]: Language }> => {
             }
         }
 
-        return [langCode, { 
+        const language = [langCode, { 
             label, 
             percentage,
             translations,
@@ -85,6 +87,10 @@ export const getLanguages = async (): Promise<{ [key: string]: Language }> => {
             background: pointer.out([gctl('background')]).value,
             bcp47: pointer.out([gctl("bcp47")]).value,
         }]
+
+        if (includePointers) language.pointer = pointer
+
+        return language
     }))
 
     for (const language of Object.values(languages)) {
@@ -97,7 +103,7 @@ export const getLanguages = async (): Promise<{ [key: string]: Language }> => {
     return languages
 }
 
-export const getCategories = async (): Promise<Array<Category>> => {
+export const getCategories = async (includePointers = true): Promise<Array<Category>> => {
     const store = await getStore()
     const pointer = grapoi({ dataset: store, term: gct('Category') }).in([rdf('type')]) as GrapoiPointer
 
@@ -114,7 +120,7 @@ export const getCategories = async (): Promise<Array<Category>> => {
         
         const slug = categoryPointer.term.value.split('/').pop()!
 
-        return {
+        const category = {
             uri: categoryPointer.term.value,
             color: uniqolor(slug, { lightness: [10, 40] }).color,
             slug,
@@ -123,6 +129,10 @@ export const getCategories = async (): Promise<Array<Category>> => {
             descriptions: Object.fromEntries(categoryPointer.out([rdfs('comment')]).terms.map(term => ( [(term as Literal).language, term.value ]))),
             image: categoryPointer.out([schema('image')]).value // ?? backgroundFallback
         }
+
+        if (includePointers) category.pointer = categoryPointer
+
+        return category
     })
 }
 
