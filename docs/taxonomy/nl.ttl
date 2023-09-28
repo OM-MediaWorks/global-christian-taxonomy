@@ -1,5 +1,5 @@
-@prefix gct: <http://taxonomy.mediaworks.global/>.
-@prefix gctl: <http://taxonomy.mediaworks.global/language/>.
+@prefix gct: <https://taxonomy.mediaworks.global/>.
+@prefix gctl: <https://taxonomy.mediaworks.global/language/>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
 gct:bible-studies

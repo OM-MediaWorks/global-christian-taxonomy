@@ -1,4 +1,4 @@
-@prefix gct: <http://taxonomy.mediaworks.global/>.
+@prefix gct: <https://taxonomy.mediaworks.global/>.
 @prefix schema: <https://schema.org/>.
 @prefix unsplash: <https://images.unsplash.com/photo->.
 

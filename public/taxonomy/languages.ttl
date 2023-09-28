@@ -1,5 +1,5 @@
-@prefix gct: <http://taxonomy.mediaworks.global/>.
-@prefix gctl: <http://taxonomy.mediaworks.global/language/>.
+@prefix gct: <https://taxonomy.mediaworks.global/>.
+@prefix gctl: <https://taxonomy.mediaworks.global/language/>.
 @prefix unsplash: <https://images.unsplash.com/photo->.
 @prefix schema: <https://schema.org/>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
