@@ -8,6 +8,7 @@ import JSONLD  from 'jsonld';
 import grapoi from "grapoi"
 import type { GrapoiPointer } from '@/types'
 import { gct, gctl, rdf, rdfs, schema } from "@/helpers/namespaces"
+import type { Term } from "n3";
 
 export async function getStaticPaths() {
 	const languages = [...Object.keys(await getLanguages())].filter(language => language !== 'en')
@@ -32,7 +33,7 @@ doc.push({
 		'http://www.w3.org/ns/ldp#BasicContainer',
 		'http://www.w3.org/ns/ldp#Resource',
 	],
-	'http://www.w3.org/ns/ldp#contains': pointer.terms.map(term => term.value)
+	'http://www.w3.org/ns/ldp#contains': pointer.terms.map((term: Term) => ({ '@id': term.value }))
 })
 
 ---
