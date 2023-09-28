@@ -27,14 +27,14 @@ const quads = [...pointer.quads() ?? []]
 let doc = await JSONLD.fromRDF(quads);
 doc[0]['@type'] = [...new Set(doc[0]['@type'])]
 
-doc.push({
-	'@type': [
-		'http://www.w3.org/ns/ldp#Container',
-		'http://www.w3.org/ns/ldp#BasicContainer',
-		'http://www.w3.org/ns/ldp#Resource',
-	],
-	'http://www.w3.org/ns/ldp#contains': pointer.terms.map((term: Term) => ({ '@id': term.value }))
-})
+// doc.push({
+// 	'@type': [
+// 		'http://www.w3.org/ns/ldp#Container',
+// 		'http://www.w3.org/ns/ldp#BasicContainer',
+// 		'http://www.w3.org/ns/ldp#Resource',
+// 	],
+// 	'http://www.w3.org/ns/ldp#contains': pointer.terms.map((term: Term) => ({ '@id': term.value }))
+// })
 
 ---
 
