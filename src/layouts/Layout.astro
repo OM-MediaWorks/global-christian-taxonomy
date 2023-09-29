@@ -71,3 +71,14 @@ const pageTitle = `${title ?? Astro.props.frontmatter.title} | Global Christian 
 		</footer>
 	</body>
 </html>
+
+<script>
+	const possibleSlash = location.toString().substring(location.toString().length - 1, location.toString().length)
+	if (possibleSlash === '/') {
+		history.replaceState(
+			'', 
+			'', 
+			location.toString().substring(0, location.toString().length - 1)
+		);
+	}
+</script>
