@@ -8,6 +8,10 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   outDir: 'docs',
+  trailingSlash: 'never',
+  build: {
+    format: 'file'
+  },
   resolve: {
     alias: [{
       find: '@',
