@@ -10,7 +10,7 @@ gctl:en
     gctl:description """
         Specifying categories for all Christian media so that Christians all over the world can search for media catered to their needs.
 
-        [Read more about this initiative](/about)
+        [Read more about this initiative](/goal)
     """ ;
     rdfs:label "English" ;
     gctl:welcome """
@@ -37,7 +37,7 @@ gctl:nl
 
         Een categorie systeem voor alle christelijke media zo dat christenen overal kunnen zoeken naar media specifiek voor hun.
 
-        [Lees meer over dit initiatief](/about)
+        [Lees meer over dit initiatief](/goal)
     """ ;
     gctl:title "Globale Christelijke Taxonomie" ;
     rdfs:label "Nederlands" ;
