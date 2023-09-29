@@ -8,9 +8,9 @@
 gctl:en 
     a gctl:Language ;
     gctl:description """
-        With the goal of unifying categories for all Christian media so that christians all over the world can search for media specific to their needs.
+        Specifying categories for all Christian media so that Christians all over the world can search for media catered to their needs.
 
-        [Read more about this iniative](/about)
+        [Read more about this initiative](/about)
     """ ;
     rdfs:label "English" ;
     gctl:welcome """

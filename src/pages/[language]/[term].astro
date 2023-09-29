@@ -3,6 +3,7 @@ import { getCategories, getLanguages, getCategory } from "@/helpers/store"
 import { image } from "@/helpers/image"
 import Layout from "@/layouts/Layout.astro"
 import JSONLD  from 'jsonld';
+import Translate from "@/components/Translate.astro";
 
 export async function getStaticPaths() {
 	const categories = await getCategories()
@@ -66,13 +67,6 @@ doc[0]['@type'] = [...new Set(doc[0]['@type'])]
 				<span class="item">{formatter.format(categorySearchWords)}</span>
 			</div>
 		</div> : null}		
-	</div>
-
-	<div class="translate" slot="footer">
-		<img class="image" src="https://images.unsplash.com/photo-1531266752426-aad472b7bbf4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGdsb2JlfGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60" />
-		<h1>Don't see your language?</h1>
-		<p>Help our common cause by transating the text.</p>
-		<a class="cta-button" href="mailto:info.media@om.org?subject=I would like to translate Global Christian Taxonomy">Translate</a>
 	</div>
 
 	<script type="application/ld+json" set:html={JSON.stringify(doc, null, 2)}>

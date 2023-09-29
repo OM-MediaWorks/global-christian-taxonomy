@@ -1,16 +1,8 @@
 ---
 layout: '../layouts/Layout.astro'
-title: "About"
+title: "Goal"
 ---
-# About
-
-## Imagine a place...
-
-![library](https://images.unsplash.com/photo-1481358758723-4601c3107e65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=300&q=80)
-
-Imagine a place where you can search for all Christian media (videos, ebooks, audio etc) in all the languages of the world. What if you could receive an email when media would be available in your language but also relevant to your _interests_?
-
-What if a sunday school teacher could get an email when there are new _children_ videos about _bible stories_? The Global Christian Taxonomy is about those interests.
+# Goal
 
 ## A Christian standard category system
 
@@ -23,7 +15,7 @@ We will not be able to do this alone. We want to create a group of organisations
 __We want to help the Christian Media landscape to achieve this, do you want to join us in this cause?__
 Email us at <a href="mailto:info.media@om.org">info.media@om.org</a>.
 
-## Future integrations
+## Integrations
 
 
 ![cable](https://images.unsplash.com/photo-1610056494249-5d7f111cf78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fHVzYiUyMHBsdWd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&h=300&q=60)

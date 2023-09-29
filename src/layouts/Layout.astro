@@ -4,6 +4,7 @@ import LanguageSelector from '../components/LanguageSelector.astro'
 import { getLanguages } from "../helpers/store"
 import '../scss/style.scss';
 import MainMenu from '@/components/MainMenu.astro';
+import Translate from '@/components/Translate.astro';
 
 interface Props {
 	title: string;
@@ -56,13 +57,16 @@ const pageTitle = `${title ?? Astro.props.frontmatter.title} | Global Christian 
 		<footer class="site-footer">
 			<slot name="footer" />
 
+			<Translate />
+
 			<div class="links">
 				<ul>
-					<li><a href="https://github.com/OM-MediaWorks/" target="_blank">GitHub</a></li>
-					<li><a href="https://om.org" target="_blank">OM International</a></li>
-					<li><a href="https://om.org/mediaworks" target="_blank">MediaWorks</a></li>
+					<li><a href="https://github.com/OM-MediaWorks/">GitHub</a></li>
+					<li><a href="https://om.org/mediaworks">MediaWorks</a></li>
+					<li><a href="https://om.org">Operation Mobilisation</a></li>
 				</ul>
 				<img class="image" src={image('https://images.unsplash.com/photo-1604549944235-3e5579b15cc2', 1000)} />
+				<p>An initiative by MediaWorks, trying to help the global Christian media landscape.</p>
 			</div>
 		</footer>
 	</body>
