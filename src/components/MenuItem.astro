@@ -8,10 +8,12 @@ let localizedLink = (Astro.locals.language === 'en' ? '' : '/' + Astro.locals.la
 
 if (localizedLink.length > 1 && localizedLink.at(-1) === '/') localizedLink = localizedLink.substring(0, localizedLink.length - 1)
 
+const active = localizedLink === Astro.url.pathname || localizedLink + '/' === Astro.url.pathname
+
 ---
 <a 
     target={Astro.props.target} 
-    class={`link ${localizedLink === Astro.url.pathname ? 'active' : ''}`} 
+    class={`link ${active ? 'active' : ''}`} 
     href={localizedLink}
 >
     <slot />

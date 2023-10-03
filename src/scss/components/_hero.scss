@@ -1,8 +1,8 @@
 .hero {
-    max-width: 100%;
+    max-width: var(--maxWidth);
+    margin-inline: auto;
     position: relative;
     text-align: center;
-    background-color: var(--color);
 
     > .image {
         position: absolute;
@@ -11,13 +11,14 @@
         left: 0;
         object-fit: cover;
         width: 100%;
-        opacity: .6;
+        opacity: 1;
     }
 
     > .title {
-        font-size: 2rem;
-        padding: 40px 3rem;
+        font-size: 2.5rem;
+        padding: 5rem 3rem;
         z-index: 1;
+        font-weight: 700;
         color: white;
         position: relative;
     }
@@ -34,55 +35,5 @@
 
     &.empty {
         aspect-ratio: 10/1;
-    }
-}
-
-@media (min-width: $tablet) {
-    .hero {
-        margin-inline: auto;
-        max-width: var(--maxWidth);
-
-        > .title {
-            font-weight: 900;
-            font-size: 2.2rem;
-            margin: 0;
-            border-radius: 50%;
-            display: flex;
-            text-align: center;
-            padding: 20px;
-            justify-content: center;
-            align-items: center;
-            width: 18rem;
-            height: 18rem;
-            color: black;
-            top: 9rem;
-            overflow: hidden;
-            margin-inline: auto;
-            // background-color: white;
-            position: relative;
-
-            &:after {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                display: block;
-                content: '';
-                background-color: white;
-                width: 100%;
-                height: calc(100% - 60px);
-            }
-        }
-
-        &.has-image {
-            &:after {
-                content: '';
-                background: rgba(black, .3);
-            }
-        }
-    }
-
-    .hero + * {
-        padding-top: 3rem !important;
     }
 }

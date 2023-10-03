@@ -1,0 +1,33 @@
+.endorsement {
+    color: var(--grayDark);
+    background-color: white;
+
+    .logos {
+        margin-top: 2rem;
+        min-height: 120px;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+
+        a {
+            flex: 0 0 120px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+    }
+}
+
+@media (min-width: $tablet) {
+    .endorsement {
+        text-align: left;
+
+        .logos {
+            justify-content: start;
+        }
+    }
+}

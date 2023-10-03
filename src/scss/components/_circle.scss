@@ -4,7 +4,7 @@
     overflow: hidden;
     z-index: 1;
     padding: 2rem;
-    background-color: var(--color);
+    // background-color: var(--color);
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -14,7 +14,7 @@
         width: 100%;
         height: 100%;
         z-index: -1;
-        opacity: .6;
+        // opacity: .6;
         left: 0;
         top: 0;
         object-fit: cover;
@@ -63,14 +63,14 @@
 @media (min-width: 630px) {
     .circle {
         aspect-ratio: 1;
-        width: 185px;
+        width: 190px;
         padding: 0;
-        flex: 1 1 185px;
+        flex: 0 0 187px;
         position: relative;
         border-radius: 50%;
         overflow: hidden;
         z-index: 1;
-        background-color: var(--color);
+        // background-color: var(--color);
         color: white;
         text-decoration: none;
         
@@ -80,39 +80,7 @@
             height: 100%;
             z-index: -1;
             border-radius: 50%;
-            // border: 2px solid var(--grayDark);
-            opacity: .6;
-        }
-    
-        &.has-image {
-            &:after {
-                content: '';
-                display: block;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                left: 0;
-                top: 0;
-                background-color: rgba(black, .5);
-                z-index: 0;
-            }
-        }
-    
-        .title {
-            font-family: 'Roboto Slab', serif;
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin: 0;
-            border-radius: 50%;
-            height: 100%;
-            display: flex;
-            text-align: center;
-            padding: 10px;;
-            text-shadow: 2px 0 6px black;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            position: relative;
+            // opacity: .6;
         }
     
         &.empty {

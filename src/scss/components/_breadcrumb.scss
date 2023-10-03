@@ -2,6 +2,8 @@
     display: flex;
     gap: .4rem;
     margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
 
     .divider:after {
         color: var(--grayMedium);

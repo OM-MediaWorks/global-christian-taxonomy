@@ -3,7 +3,20 @@
     padding: 1rem;
     border-radius: 100px;
     border: 1px solid var(--grayDark);
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     width: 100%;
     margin-inline: auto;
+}
+
+.search-input-wrapper {
+    position: relative;
+
+    iconify-icon {
+        position: absolute;
+        pointer-events: none;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+    }
 }

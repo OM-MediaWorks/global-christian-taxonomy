@@ -2,8 +2,6 @@
 layout: '../layouts/Layout.astro'
 title: "Goal"
 ---
-# Goal
-
 ## A Christian standard category system
 
 ![organized](https://images.unsplash.com/photo-1529957018945-07aed3538ad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8b3JnYW5pemVkfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&h=300&q=60)
@@ -24,10 +22,10 @@ We want to create easy integration for all kinds of systems. It should be very s
 
 We want to create widgets for systems such as WordPress and Drupal. Selecting the category for a media item should be a simple click.
 
-### How to use on platforms
+## How to use on platforms
 
 Each category has an identifier such as `gct:bibles-and-bible-stories`. These identifiers can be used on platforms such as YouTube and Vimeo. On systems that you or your organisation control we should of course show the label in your language.
 
-### How to use in systems you own
+## How to use in systems you own
 
 An integration has to be created that would save the URL such as `https://taxonomy.mediaworks.global/bible-studies` in your database and which would display the translated label when viewing your website.

@@ -1,8 +1,8 @@
 .language-switcher select {
     appearance: none;
-    padding: 10px;
+    padding: 10px 18px;
     border-radius: var(--radius);
-    font-size: 1.2rem;
+    font-size: .9rem;
     border: none;
     background: white url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="16" height="7" viewBox="0 0 16 7"%3E%3Cpath fill="currentColor" d="M8 6.5a.47.47 0 0 1-.35-.15l-4.5-4.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l4.15 4.15l4.14-4.14c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-4.5 4.5c-.1.1-.23.15-.35.15Z"%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
@@ -11,7 +11,7 @@
     text-transform: uppercase;
     padding-inline-end: 34px;
     width: 100%;
-    min-width: 66px;
+    min-width: 70px;
 }
 
 .language-switcher {

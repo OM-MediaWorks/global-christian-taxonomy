@@ -53,19 +53,13 @@ doc.push({
 	</div>
 
 
-	<input type="search" id="grid-filter" class="search-input" placeholder="Search..." slot="default" />
+	<div class="search-input-wrapper">
+		<input type="search" id="grid-filter" class="search-input" placeholder="Search..." slot="default" />
+		<iconify-icon icon="material-symbols:search"></iconify-icon>	
+	</div>
 
 	<div class="overview grid categories" id="categories-grid" slot="default">
 		{categories.map(category => <Category category={category} />)}
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
-		<div class="empty circle category"></div>
 	</div>	
 
 	<script type="application/ld+json" set:html={JSON.stringify(doc, null, 2)}>

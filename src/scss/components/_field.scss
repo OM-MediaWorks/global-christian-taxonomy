@@ -1,6 +1,4 @@
 .field {
-    margin-bottom: 2rem;
-
     .label {
         font-weight: bold;
         display: block;
@@ -13,10 +11,15 @@
     }
 
     .link-outline {
-        padding: 10px;
+        text-decoration: none;
+        padding: 10px 14px;
         display: inline-flex;
         border: 1px solid var(--grayMedium);
         border-radius: 100px;
         color: var(--grayDark);
     }
+}
+
+.field + .field {
+    margin-top: 2rem;
 }

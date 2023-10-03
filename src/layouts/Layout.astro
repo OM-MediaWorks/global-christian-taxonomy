@@ -28,6 +28,7 @@ const pageTitle = `${title ?? Astro.props.frontmatter.title} | Global Christian 
 		<meta name="description" content={pageTitle}>
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
+		<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 	</head>
@@ -39,13 +40,24 @@ const pageTitle = `${title ?? Astro.props.frontmatter.title} | Global Christian 
 				<h1 class="site-title">{language.title}</h1>
 			</a>
 
+			<a class="search-button" href={(Astro.locals.language === 'en' ? '/' : '/' + Astro.locals.language) + '#search'}>
+				<iconify-icon icon="material-symbols:search"></iconify-icon>
+			</a>
+
 			<LanguageSelector />
+
+			<button class="toggle-menu">
+				<iconify-icon class="hamburger" icon="heroicons-solid:menu" />
+				<iconify-icon class="cross" icon="maki:cross" />
+			</button>
+
 		</header>
 
 		<MainMenu />
 
 		<slot name="hero">
-			<div slot="hero" class="hero has-image empty">
+			<div slot="hero" class="hero has-image">
+				<div class="title">{title ?? Astro.props.frontmatter.title}</div>
 				<img class="image" src={image(language.background, 1000, 200)} />
 			</div>
 		</slot>
@@ -59,20 +71,44 @@ const pageTitle = `${title ?? Astro.props.frontmatter.title} | Global Christian 
 
 			<Translate />
 
+			<div class="endorsement">
+				<h3>{language.translations['endorsed-by']}</h3>
+				<div class="logos">
+					<a href="https://om.org"><img src="/images/om.svg" /></a>
+					<a href="https://om.org/mediaworks"><img src="/images/mediaworks.svg" /></a>
+				</div>
+			</div>
+
 			<div class="links">
 				<ul>
 					<li><a href="https://github.com/OM-MediaWorks/">GitHub</a></li>
 					<li><a href="https://om.org/mediaworks">MediaWorks</a></li>
 					<li><a href="https://om.org">Operation Mobilisation</a></li>
 				</ul>
-				<img class="image" src={image('https://images.unsplash.com/photo-1604549944235-3e5579b15cc2', 1000)} />
-				<p>An initiative by MediaWorks, trying to help the global Christian media landscape.</p>
+				<img class="image" src={image(language.background, 1000)} />
+				<p>{language.translations['copyright']}</p>
 			</div>
 		</footer>
 	</body>
 </html>
 
 <script>
+
+	if (location.hash === '#search') {
+		const searchInput = document.querySelector('#grid-filter') as HTMLInputElement
+		searchInput?.focus()
+		searchInput?.scrollIntoView({
+			behavior: 'smooth'
+		})
+		history.replaceState('', '', location.pathname)
+	}
+
+	const toggleMenu = document.querySelector('.toggle-menu')
+
+	toggleMenu?.addEventListener('click', () => {
+		document.body.classList.toggle('has-open-menu')
+	})
+
 	const possibleSlash = location.toString().substring(location.toString().length - 1, location.toString().length)
 	if (possibleSlash === '/') {
 		history.replaceState(

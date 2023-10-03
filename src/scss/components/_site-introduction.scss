@@ -6,6 +6,7 @@
     position: relative;
     z-index: 1;
     font-size: 1.7rem;
+    padding-bottom: 1rem;
 
     p {
         margin: 0;
@@ -17,14 +18,21 @@
         color: white;
         position: relative;
         text-align: center;
-        font-size: 2rem;
-        line-height: 3rem;
+        font-size: 2.6rem;
+        line-height: 4.5rem;
         padding-bottom: 6rem;
-        margin-bottom: -5rem;
+        margin-bottom: -4.4rem;
+        font-family: 'Roboto Slab', serif;
+        font-weight: 300;
+
+        p:nth-child(1) {
+            margin-bottom: 1rem;
+        }
 
         strong {
-            font-family: 'Roboto Slab', serif;
-
+            font-weight: 500;
+            font-size: 3.4rem;
+            line-height: 2rem;
         }
 
         &:after {
@@ -42,14 +50,14 @@
 
     .title {
         padding-inline: var(--inlinePadding);
-        margin-block: 1rem;
+        margin-top: 1rem;
     }
 
     .description {
         padding-inline: var(--inlinePadding);
         width: 100%;
         font-size: 1.6rem;
-        line-height: 3rem;
+        line-height: 2.4rem;
         font-weight: 300;
     }
 
@@ -68,5 +76,9 @@
         background: white;
         border-radius: 50%;
         margin-inline: auto;
+
+        > img {
+            width: 90px;
+        }
     }
 }

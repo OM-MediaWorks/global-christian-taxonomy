@@ -1,6 +1,6 @@
 $tablet: 720px;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;600;900&family=Roboto:wght@300;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;900&family=Lato:wght@200;300;400;700;900&display=swap');
 
 @import './layout';
 @import './components/circle';
@@ -16,6 +16,7 @@ $tablet: 720px;
 @import './components/breadcrumb';
 @import './components/site-footer';
 @import './components/cta-button';
+@import './components/endorsement';
 
 * {
     box-sizing: border-box;
@@ -41,7 +42,7 @@ $tablet: 720px;
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 html {
@@ -75,4 +76,8 @@ input[type="week"],
 select:focus,
 textarea {
   font-size: 16px;
+}
+
+a {
+    color: var(--accent);
 }
