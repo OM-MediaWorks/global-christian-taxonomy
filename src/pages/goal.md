@@ -6,11 +6,11 @@ title: "Goal"
 
 ![organized](https://images.unsplash.com/photo-1529957018945-07aed3538ad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8b3JnYW5pemVkfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&h=300&q=60)
 
-We want to create a Christian standard category system that will be free for all and easily translatable in any language. We want to help the Christian media landscape to apply these categories to the top 10% of all Christian media. 
+We want to create a Christian standard category system that will be free for all and easily translatable into any language. We want to help the Christian media landscape to apply these categories to the top 10% of all Christian media. 
 
 We will not be able to do this alone. We want to create a group of organisations that will carry this cause.
 
-__We want to help the Christian Media landscape to achieve this, do you want to join us in this cause?__
+__Could you join us in realising this vision? One way of helping can be by translating the category titles and descriptions into your language.__
 Email us at <a href="mailto:info.media@om.org">info.media@om.org</a>.
 
 ## Integrations
