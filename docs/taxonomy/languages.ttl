@@ -24,7 +24,7 @@ gctl:en
     gctl:translation-other-translations "Other translations"@en ;
     gctl:translation-search-words "Search words"@en ;
     gctl:translation-endorsed-by "Endorsed by"@en ;
-    gctl:translation-copyright "An initiative by MediaWorks, we want to support the Christian media landscape."@en;
+    gctl:translation-copyright "A MediaWorks initiative — supporting the Christian media landscape"@en;
     gctl:translation-all "All"@en ;
     gctl:bcp47 "en".
 
@@ -47,6 +47,7 @@ gctl:nl
     gctl:translation-other-translations "Andere vertalingen"@nl ;
     gctl:translation-search-words "Zoekwoorden"@nl ;
     gctl:translation-endorsed-by "Ondersteund door"@nl ;
-        gctl:translation-copyright "Een initiatief van MediaWorks, we willen het Christelijke media landschap ondersteunen."@nl;
+        gctl:translation-copyright "Een MediaWorks-initiatief — ter ondersteuning van het christelijke medialandschap"@nl;
     gctl:translation-all "Overzicht"@nl ;
     gctl:bcp47 "nl".
+
